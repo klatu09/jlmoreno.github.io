@@ -1,41 +1,57 @@
 :root {
   --bg: #f9f9f9;
-  --text: #333;
+  --text: #222;
   --accent: #007acc;
-  --card: #fff;
 }
 
 body.dark {
   --bg: #121212;
   --text: #f1f1f1;
   --accent: #66d9ef;
-  --card: #1e1e1e;
 }
 
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: var(--bg);
+  background: var(--bg);
   color: var(--text);
   transition: background 0.3s, color 0.3s;
+  scroll-behavior: smooth;
 }
 
-header, section, footer {
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
-  max-width: 800px;
-  margin: auto;
+  box-sizing: border-box;
 }
 
-header {
+.content {
+  max-width: 700px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h1, h2 {
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
 
 .project {
-  background-color: var(--card);
-  border: 1px solid #4442;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 8px;
+  margin-bottom: 1.5rem;
 }
 
 a {
@@ -43,90 +59,29 @@ a {
   text-decoration: none;
 }
 
-/* Navbar styles */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--card);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+.next-btn {
+  margin-top: 2rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--accent);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-}
-
-.nav-links li a {
-  color: var(--text);
-  font-weight: 500;
-}
-
-.toggle-container {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.next-btn:hover {
+  background-color: #005eaa;
 }
 
 #darkModeToggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
   background: none;
   border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-/* Hamburger menu for mobile */
-.hamburger {
-  display: none;
   font-size: 1.5rem;
   cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 2rem;
-    background-color: var(--card);
-    padding: 1rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
-  }
-}
-
-/* Scroll Animation */
-.fade-in {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-footer {
-  text-align: center;
-  margin-top: 3rem;
+  z-index: 100;
 }

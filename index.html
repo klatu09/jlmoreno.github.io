@@ -4,65 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Your Name | Resume</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav class="navbar">
-    <div class="logo">YourName</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <div class="toggle-container">
-      <button id="darkModeToggle">🌓</button>
-      <div class="hamburger" id="hamburger">&#9776;</div>
-    </div>
-  </nav>
+  <button id="darkModeToggle">🌓</button>
 
-  <header class="fade-in">
-    <h1>Your Name</h1>
-    <p>Cybersecurity & IT Professional</p>
-  </header>
-
-  <section id="about" class="fade-in">
-    <h2>About Me</h2>
-    <p>A short description about your skills, passion, and certifications.</p>
-  </section>
-
-  <section id="skills" class="fade-in">
-    <h2>Skills</h2>
-    <ul>
-      <li>Networking</li>
-      <li>Penetration Testing</li>
-      <li>Digital Forensics</li>
-      <li>Security+</li>
-    </ul>
-  </section>
-
-  <section id="projects" class="fade-in">
-    <h2>Projects</h2>
-    <div class="project">
-      <h3>Limiter</h3>
-      <p>Activity logger with Discord webhook integration and process monitoring.</p>
-    </div>
-    <div class="project">
-      <h3>Traceware</h3>
-      <p>Self-healing system monitor with startup/shutdown logging.</p>
+  <section id="about" class="section">
+    <div class="content">
+      <h1>Your Name</h1>
+      <p>Cybersecurity & IT Professional</p>
+      <p>Passionate about ethical hacking, security research, and continuous learning.</p>
+      <button class="next-btn" data-target="experience">Next: Experience</button>
     </div>
   </section>
 
-  <section id="contact" class="fade-in">
-    <h2>Contact</h2>
-    <p>Email: yourname@example.com</p>
-    <p>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
+  <section id="experience" class="section">
+    <div class="content">
+      <h2>Work Experience</h2>
+      <ul>
+        <li><strong>IT Support Specialist</strong> – Supported 100+ students, resolved technical issues, managed devices.</li>
+        <li><strong>HubSpot Administrator</strong> – Managed CRM workflows, trained staff, ensured data integrity.</li>
+      </ul>
+      <button class="next-btn" data-target="education">Next: Education</button>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Your Name</p>
-  </footer>
+  <section id="education" class="section">
+    <div class="content">
+      <h2>Education & Certifications</h2>
+      <ul>
+        <li>CompTIA Security+</li>
+        <li>CompTIA Network+ (in progress)</li>
+        <li>Top 4 in Trend Micro CTF</li>
+      </ul>
+      <button class="next-btn" data-target="projects">Next: Projects</button>
+    </div>
+  </section>
 
-  <script src="script.js"> </script>
+  <section id="projects" class="section">
+    <div class="content">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>Limiter</h3>
+        <p>Real-time activity logger with Discord webhook and stealth process monitoring.</p>
+      </div>
+      <div class="project">
+        <h3>Traceware</h3>
+        <p>System monitor with keystroke logging, watchdog process, and startup/shutdown logs.</p>
+      </div>
+      <button class="next-btn" data-target="contact">Next: Contact</button>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="content">
+      <h2>Contact Me</h2>
+      <p>Email: yourname@example.com</p>
+      <p>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
