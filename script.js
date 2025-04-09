@@ -1,52 +1,56 @@
 const bootLogs = [
-  "[0.0001] Booting up secure environment...",
-  "[0.0056] Initializing cybersecurity protocols...",
-  "[0.0113] Verifying system integrity...",
-  "[0.0152] Authenticating system components...",
-  "[0.0214] Establishing secure connection...",
-  "[0.0301] Launching secure shell environment...",
-  "[0.0412] System secure.",
-  "[0.0501] Access granted.",
-  "[0.0601] Welcome.",
-  "[0.0713] Checking hardware components...",
-  "[0.0832] Initializing network adapters...",
-  "[0.0910] Detecting external devices...",
-  "[0.1005] Enabling firewall protection...",
-  "[0.1102] Loading system drivers...",
-  "[0.1203] Verifying user permissions...",
-  "[0.1307] Encrypting user data in transit...",
-  "[0.1401] Running integrity check on system files...",
-  "[0.1508] System memory check complete...",
-  "[0.1620] Authenticating network credentials...",
-  "[0.1703] Starting background services...",
-  "[0.1824] Syncing time with global NTP servers...",
-  "[0.1931] Secure VPN tunnel established...",
-  "[0.2050] Launching primary applications...",
-  "[0.2135] Enforcing endpoint protection policies...",
-  "[0.2201] Finalizing system boot sequence...",
-  "[0.2304] Ready to connect to remote servers...",
-  "[0.2408] Waiting for user input...",
-  "[0.2520] Scanning for potential security vulnerabilities...",
-  "[0.2634] Two-factor authentication enabled...",
-  "[0.2751] Verifying secure connection integrity...",
-  "[0.2863] Ensuring zero-trust network architecture...",
-  "[0.2982] Security protocols validated. All clear.",
-  "[0.3094] User session encrypted.",
-  "[0.3205] Secure access granted. Your data is protected.",
-  "[0.3307] All systems operational.",
-  "[0.3401] User is safe to connect. Ready to view my portfolio?"
+  "[0.0001] Launching portfolio system...",
+  "[0.0042] Authenticating guest session... ✅",
+  "[0.0085] Performing security scan... no threats found.",
+  "[0.0123] Warming up defensive protocols... all systems green.",
+  "[0.0176] Syncing cybersecurity certifications...",
+  "[0.0231] Initializing real-world experience modules...",
+  "[0.0304] Injecting hands-on Blue & Red Team skills...",
+  "[0.0378] Compiling personal projects: Traceware, Limiter, more...",
+  "[0.0450] Integrating TryHackMe progress and CTF achievements...",
+  "[0.0524] Aligning content for recruiter visibility...",
+  "[0.0599] Resume loaded. Contact channels secured.",
+  "[0.0673] Interface polished. UX firewall active 😎",
+  "[0.0732] Running integrity check... 100% verified.",
+  "[0.0811] Encryption status: Strong. Identity: Authentic.",
+  "[0.0888] Session environment is secure, smooth, and HR-friendly.",
+  "[0.0956] Portfolio boot sequence complete.",
+  "[0.1029] Welcome — I’m Jun Laurenz L. Moreno, A Cybersecurity Professional.",
+  "[0.1103] Built this with code, secured it with care, and made it easy to explore.",
+  "[0.1187] No jargon, no pressure — just skills, projects, and passion.",
+  "[0.1254] You're cleared for full access. Take a look around — I'll handle the security. 🔐",
+  "[0.1501] Ready to view my portfolio?"
 ];
-
 
 let logIndex = 0;
 const bootLogElement = document.getElementById("boot-log");
 const continueButton = document.getElementById("continue-button");
 
+// Function to show the loading message
+function showLoadingMessage() {
+  bootLogElement.textContent = "Loading... Please wait.";
+  setTimeout(() => {
+      bootLogElement.textContent = ""; // Clear the loading message
+      showLogEntry(); // Start showing the boot logs
+  }, 3000); // Show for 1.5 seconds
+}
+
 function showLogEntry() {
   if (logIndex < bootLogs.length) {
-      bootLogElement.textContent += bootLogs[logIndex] + "\n";
+      const logMessage = document.createElement("div"); // Create a new div for each log message
+      logMessage.textContent = bootLogs[logIndex];
+
+      // Apply styles based on the log index
+      if (logIndex === bootLogs.length - 1) {
+          logMessage.style.color = "lime"; // Glowing green for the last message
+          logMessage.style.textShadow = "0 0 10px lime, 0 0 20px lime"; // Glowing effect
+      } else {
+          logMessage.style.color = "white"; // White text for other messages
+      }
+
+      bootLogElement.appendChild(logMessage); // Append the new log message to the boot log
       logIndex++;
-      setTimeout(showLogEntry, 200); // Delay of 0.5 seconds between each entry
+      setTimeout(showLogEntry, 200); // Delay of 0.2 seconds between each entry
   } else {
       setTimeout(() => {
           continueButton.classList.remove("hidden"); // Show the continue button
@@ -54,8 +58,8 @@ function showLogEntry() {
   }
 }
 
-// Start showing the boot log when the page loads
-window.onload = showLogEntry;
+// Start showing the loading message when the page loads
+window.onload = showLoadingMessage;
 
 // Add event listener for the continue button
 continueButton.addEventListener('click', function() {

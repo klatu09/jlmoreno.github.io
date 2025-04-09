@@ -3,7 +3,6 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f4;
-  overflow: hidden; /* Prevent scrolling until the main content is shown */
 }
 
 #boot-screen {
@@ -89,4 +88,53 @@ footer {
 #continue-button:hover {
   background-color: #4a5d6a; /* Change background color on hover */
   box-shadow: 0 0 15px rgba(0, 255, 0, 1); /* Enhanced glow effect on hover */
+}
+
+/* Animation for boot log */
+@keyframes logFadeIn {
+  0% {
+      opacity: 0;
+      transform: translateY(20px); /* Start slightly below */
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0); /* End at original position */
+  }
+}
+
+#boot-log {
+  animation: logFadeIn 1s ease-in-out; /* Apply the fade-in animation */
+}
+
+#boot-log.show {
+  animation: logFadeIn 1s ease-in-out; /* Apply the fade-in animation */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  body {
+      font-size: 14px; /* Smaller font size for mobile */
+  }
+
+  header, footer {
+      padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  section {
+      padding: 10px; /* Adjust section padding */
+  }
+
+  #continue-button {
+      padding: 8px 16px; /* Adjust button size */
+      font-size: 14px; /* Smaller button text */
+  }
+}
+
+/* Accessibility Enhancements */
+h1, h2, h3 {
+  line-height: 1.2; /* Improve readability */
+}
+
+body {
+  color: #333; /* Darker text for better contrast */
 }
