@@ -1,3 +1,4 @@
+// Boot log messages
 const bootLogs = [
   "[0.0001] Launching portfolio system...",
   "[0.0042] Authenticating guest session... ✅",
@@ -19,7 +20,7 @@ const bootLogs = [
   "[0.1103] Built this with code, secured it with care, and made it easy to explore.",
   "[0.1187] No jargon, no pressure — just skills, projects, and passion.",
   "[0.1254] You're cleared for full access. Take a look around — I'll handle the security. 🔐",
-  "[0.1501] Ready to view my portfolio?"
+  "[0.1501] Ready to view my portfolio? \n \n \n \n \n Security is not a feature. It’s a mindset. \n- JL "
 ];
 
 let logIndex = 0;
@@ -28,11 +29,11 @@ const continueButton = document.getElementById("continue-button");
 
 // Function to show the loading message
 function showLoadingMessage() {
-  bootLogElement.textContent = "Loading... Please wait.";
+  bootLogElement.textContent = "Thank you for visiting my website; it means a lot! \n \n \n \nLoading... Please wait.";
   setTimeout(() => {
       bootLogElement.textContent = ""; // Clear the loading message
       showLogEntry(); // Start showing the boot logs
-  }, 3000); // Show for 1.5 seconds
+  }, 5000); // Show for 5 seconds
 }
 
 function showLogEntry() {
@@ -68,4 +69,36 @@ continueButton.addEventListener('click', function() {
   // Allow scrolling and show the main content
   document.body.style.overflow = "auto"; // Enable scrolling
   document.getElementById("main-content").classList.remove("hidden"); // Show the main content
+});
+
+// Custom Cursor Functionality
+const cursor = document.createElement('div');
+cursor.classList.add('custom-cursor');
+document.body.appendChild(cursor);
+
+// Flashlight effect
+const flashlight = document.createElement('div');
+flashlight.classList.add('flashlight');
+document.body.appendChild(flashlight);
+
+// Update cursor and flashlight position based on mouse movement
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = `${e.pageX}px`;
+  cursor.style.top = `${e.pageY}px`;
+  flashlight.style.left = `${e.pageX}px`;
+  flashlight.style.top = `${e.pageY}px`;
+});
+
+// Add event listener to continue button for sticky effect
+continueButton.addEventListener('mouseenter', () => {
+  cursor.style.transition = 'none'; // Disable cursor transition for sticking effect
+  cursor.style.left = `${continueButton.getBoundingClientRect().left + continueButton.offsetWidth / 2}px`;
+  cursor.style.top = `${continueButton.getBoundingClientRect().top + continueButton.offsetHeight / 2}px`;
+  document.body.style.cursor = 'none'; // Hide default cursor
+  continueButton.classList.add('sticky-cursor'); // Apply sticky cursor effect to button
+});
+
+continueButton.addEventListener('mouseleave', () => {
+  document.body.style.cursor = ''; // Restore default cursor
+  continueButton.classList.remove('sticky-cursor'); // Remove sticky cursor effect
 });
