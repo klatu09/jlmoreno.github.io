@@ -34,7 +34,7 @@ const bootLogs = [
   "[0.3094] User session encrypted.",
   "[0.3205] Secure access granted. Your data is protected.",
   "[0.3307] All systems operational.",
-  "[0.3401] User is safe to connect. Ready to engage."
+  "[0.3401] User is safe to connect. Ready to view my portfolio?"
 ];
 
 
