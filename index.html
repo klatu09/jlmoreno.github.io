@@ -1,68 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name | Resume</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Your Name | Resume Grid</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <button id="darkModeToggle">🌓</button>
 
-  <section id="about" class="section">
-    <div class="content">
-      <h1>Your Name</h1>
-      <p>Cybersecurity & IT Professional</p>
-      <p>Passionate about ethical hacking, security research, and continuous learning.</p>
-      <button class="next-btn" data-target="experience">Next: Experience</button>
-    </div>
-  </section>
-
-  <section id="experience" class="section">
-    <div class="content">
+  <div class="grid-container">
+    <div class="box top-left">
       <h2>Work Experience</h2>
       <ul>
-        <li><strong>IT Support Specialist</strong> – Supported 100+ students, resolved technical issues, managed devices.</li>
-        <li><strong>HubSpot Administrator</strong> – Managed CRM workflows, trained staff, ensured data integrity.</li>
+        <li>IT Support Specialist – 100+ students</li>
+        <li>HubSpot Admin – CRM expert</li>
       </ul>
-      <button class="next-btn" data-target="education">Next: Education</button>
     </div>
-  </section>
 
-  <section id="education" class="section">
-    <div class="content">
-      <h2>Education & Certifications</h2>
+    <div class="box top-right">
+      <h2>Education</h2>
       <ul>
         <li>CompTIA Security+</li>
-        <li>CompTIA Network+ (in progress)</li>
-        <li>Top 4 in Trend Micro CTF</li>
+        <li>CompTIA Network+ (ongoing)</li>
+        <li>Top 4 – Trend Micro CTF</li>
       </ul>
-      <button class="next-btn" data-target="projects">Next: Projects</button>
     </div>
-  </section>
 
-  <section id="projects" class="section">
-    <div class="content">
+    <div class="box center">
+      <h1>Your Name</h1>
+      <p>Cybersecurity & IT Enthusiast</p>
+      <p>Ethical hacker • Analyst • Builder of cool tools</p>
+    </div>
+
+    <div class="box bottom-left">
       <h2>Projects</h2>
-      <div class="project">
-        <h3>Limiter</h3>
-        <p>Real-time activity logger with Discord webhook and stealth process monitoring.</p>
-      </div>
-      <div class="project">
-        <h3>Traceware</h3>
-        <p>System monitor with keystroke logging, watchdog process, and startup/shutdown logs.</p>
-      </div>
-      <button class="next-btn" data-target="contact">Next: Contact</button>
+      <ul>
+        <li>Limiter – Real-time activity logger</li>
+        <li>Traceware – System monitor</li>
+        <li>Stealthcord – App tracker + webhook</li>
+      </ul>
     </div>
-  </section>
 
-  <section id="contact" class="section">
-    <div class="content">
-      <h2>Contact Me</h2>
-      <p>Email: yourname@example.com</p>
-      <p>GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
+    <div class="box bottom-right">
+      <h2>Trainings & Skills</h2>
+      <ul>
+        <li>TryHackMe (Top 2%)</li>
+        <li>LetsDefend • CTFs</li>
+        <li>Python, PowerShell, Bash</li>
+      </ul>
     </div>
-  </section>
+  </div>
 
   <script src="script.js"></script>
 </body>
