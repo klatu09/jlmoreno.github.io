@@ -1,56 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Your Name | Resume Grid</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Portfolio - Jun Laurenz Moreno</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <button id="darkModeToggle">🌓</button>
-
-  <div class="grid-container">
-    <div class="box top-left">
-      <h2>Work Experience</h2>
-      <ul>
-        <li>IT Support Specialist – 100+ students</li>
-        <li>HubSpot Admin – CRM expert</li>
-      </ul>
+    <div id="boot-screen">
+        <pre id="boot-log"></pre>
+        <button id="continue-button" class="hidden">Connect</button>
     </div>
-
-    <div class="box top-right">
-      <h2>Education</h2>
-      <ul>
-        <li>CompTIA Security+</li>
-        <li>CompTIA Network+ (ongoing)</li>
-        <li>Top 4 – Trend Micro CTF</li>
-      </ul>
+    <div id="main-content" class="hidden">
+        <header>
+            <h1>Jun Laurenz Moreno</h1>
+            <h2>Cybersecurity & IT Professional</h2>
+        </header>
+        <main>
+            <section id="about">
+                <h3>About Me</h3>
+                <p>Passionate cybersecurity professional with a focus on protecting systems and data. I enjoy tackling challenges and continuously learning about the latest security trends.</p>
+            </section>
+            <section id="skills">
+                <h3>Skills</h3>
+                <ul>
+                    <li>Penetration Testing</li>
+                    <li>Network Security</li>
+                    <li>Incident Response</li>
+                    <li>Vulnerability Assessment</li>
+                    <li>Security Audits</li>
+                </ul>
+            </section>
+            <section id="projects">
+                <h3>Projects</h3>
+                <ul>
+                    <li><strong>Vulnerability Assessment Tool</strong> - Developed a tool to assess network vulnerabilities.</li>
+                    <li><strong>Incident Response Simulation</strong> - Created a simulation for incident response training.</li>
+                    <li><strong>Web Application Security Audit</strong> - Conducted a security audit for a web application.</li>
+                </ul>
+            </section>
+            <section id="contact">
+                <h3>Contact Me</h3>
+                <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Jun Laurenz Moreno</p>
+        </footer>
     </div>
-
-    <div class="box center">
-      <h1>Your Name</h1>
-      <p>Cybersecurity & IT Enthusiast</p>
-      <p>Ethical hacker • Analyst • Builder of cool tools</p>
-    </div>
-
-    <div class="box bottom-left">
-      <h2>Projects</h2>
-      <ul>
-        <li>Limiter – Real-time activity logger</li>
-        <li>Traceware – System monitor</li>
-        <li>Stealthcord – App tracker + webhook</li>
-      </ul>
-    </div>
-
-    <div class="box bottom-right">
-      <h2>Trainings & Skills</h2>
-      <ul>
-        <li>TryHackMe (Top 2%)</li>
-        <li>LetsDefend • CTFs</li>
-        <li>Python, PowerShell, Bash</li>
-      </ul>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
