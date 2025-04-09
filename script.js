@@ -82,23 +82,34 @@ flashlight.classList.add('flashlight');
 document.body.appendChild(flashlight);
 
 // Update cursor and flashlight position based on mouse movement
-document.addEventListener('mousemove', (e) => {
-  cursor.style.left = `${e.pageX}px`;
-  cursor.style.top = `${e.pageY}px`;
-  flashlight.style.left = `${e.pageX}px`;
-  flashlight.style.top = `${e.pageY}px`;
-});
+function update(e) {
+  // Get X and Y coordinates from mouse or touch events
+  var x = e.clientX || e.touches[0].clientX;
+  var y = e.clientY || e.touches[0].clientY;
 
-// Add event listener to continue button for sticky effect
+  // Update CSS variables for cursor position
+  document.documentElement.style.setProperty('--cursorX', x + 'px');
+  document.documentElement.style.setProperty('--cursorY', y + 'px');
+
+  // Update custom cursor position
+  cursor.style.left = `${x}px`;
+  cursor.style.top = `${y}px`;
+  flashlight.style.left = `${x}px`;
+  flashlight.style.top = `${y}px`;
+}
+
+// Add event listeners for mouse and touch movement
+document.addEventListener('mousemove', update);
+document.addEventListener('touchmove', update);
+
+// Prevent default cursor and stick mouse to button
 continueButton.addEventListener('mouseenter', () => {
-  cursor.style.transition = 'none'; // Disable cursor transition for sticking effect
+  cursor.style.transition = 'none'; // Disable cursor transition
   cursor.style.left = `${continueButton.getBoundingClientRect().left + continueButton.offsetWidth / 2}px`;
   cursor.style.top = `${continueButton.getBoundingClientRect().top + continueButton.offsetHeight / 2}px`;
-  document.body.style.cursor = 'none'; // Hide default cursor
-  continueButton.classList.add('sticky-cursor'); // Apply sticky cursor effect to button
+  document.body.style.cursor = 'none'; // Hide the default cursor
 });
 
 continueButton.addEventListener('mouseleave', () => {
-  document.body.style.cursor = ''; // Restore default cursor
-  continueButton.classList.remove('sticky-cursor'); // Remove sticky cursor effect
+  document.body.style.cursor = ''; // Restore the default cursor when leaving
 });
