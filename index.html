@@ -1,54 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jun Laurenz Moreno | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
 </head>
+
 <body>
+    <!-- Boot Screen -->
     <div id="boot-screen">
-        <pre id="boot-log">Thank you for visiting my website; it means a lot! \n \n \n \nLoading... Please wait.</pre>
-        <div id="quote-display" class="hidden"></div> <!-- New div for quotes -->
+        <div id="boot-log"></div>
         <button id="continue-button" class="hidden">Yes</button>
     </div>
+
+    <!-- Main Content -->
     <div id="main-content" class="hidden">
-        <header>
-            <h1>Jun Laurenz Moreno</h1>
-            <h2>Cybersecurity & IT Professional</h2>
-        </header>
-        <main>
-            <section id="about">
-                <h3>About Me</h3>
-                <p>Passionate cybersecurity professional with a focus on protecting systems and data. I enjoy tackling challenges and continuously learning about the latest security trends.</p>
-            </section>
-            <section id="skills">
-                <h3>Skills</h3>
-                <ul>
-                    <li>Penetration Testing</li>
-                    <li>Network Security</li>
-                    <li>Incident Response</li>
-                    <li>Vulnerability Assessment</li>
-                    <li>Security Audits</li>
-                </ul>
-            </section>
-            <section id="projects">
-                <h3>Projects</h3>
-                <ul>
-                    <li><strong>Vulnerability Assessment Tool</strong> - Developed a tool to assess network vulnerabilities.</li>
-                    <li><strong>Incident Response Simulation</strong> - Created a simulation for incident response training.</li>
-                    <li><strong>Web Application Security Audit</strong> - Conducted a security audit for a web application.</li>
-                </ul>
-            </section>
-            <section id="contact">
-                <h3>Contact Me</h3>
-                <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a></p>
-            </section>
-        </main>
+        <div class="container">
+            <div class="header">
+                <h1>Jun Laurenz L. Moreno</h1>
+                <button class="status-button">
+                    <span class="status-icon">🟢</span> Online
+                </button>
+                <h2 class="subtitle">Cybersecurity Professional</h2>
+                <p class="description">Welcome to my portfolio! I am a passionate developer with a focus on cybersecurity...</p>
+                <div class="social-links">
+                    <h3>Connect with me:</h3>
+                    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
+                    <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
+                    <a href="https://yourwebsite.com" target="_blank">Website</a>
+                </div>
+            </div>
+            <div class="terminal-container">
+                <div class="tabs">
+                    <button class="tab-button active" onclick="showTab('about')">About Me</button>
+                    <button class="tab-button" onclick="showTab('experience')">Experience</button>
+                    <button class="tab-button" onclick="showTab('projects')">Projects</button>
+                    <button class="tab-button" onclick="showTab('trainings')">Additional Trainings</button>
+                </div>
+                <div class="tab-content" id="about">
+                    <h2>About Me</h2>
+                    <p>Hello! I'm Jun Laurenz L. Moreno, a dedicated cybersecurity professional with a strong passion for technology and security. I specialize in protecting systems and networks from cyber threats. My journey in technology started early, and I have continually honed my skills in various programming languages and security practices. When I'm not working, I enjoy learning about new technologies and contributing to open-source projects.</p>
+                </div>
+                <div class="tab-content hidden" id="experience">
+                    <h2>Experience</h2>
+                    <p>I have worked with reputable organizations to enhance their cybersecurity posture. My experience includes:</p>
+                    <ul>
+                        <li>Conducting security audits and assessments.</li>
+                        <li>Implementing security measures and protocols.</li>
+                        <li>Collaborating with development teams to secure applications.</li>
+                        <li>Training staff on security best practices.</li>
+                    </ul>
+                </div>
+                <div class="tab-content hidden" id="projects">
+                    <h2>Projects</h2>
+                    <p>Here are some notable projects I've worked on:</p>
+                    <ul>
+                        <li><strong>Secure Web App:</strong> Developed a web application with robust security features.</li>
+                        <li><strong>Network Monitoring Tool:</strong> Created a tool to monitor network traffic and detect anomalies.</li>
+                        <li><strong>Cybersecurity Blog:</strong> Managed a blog that shares insights on cybersecurity practices.</li>
+                    </ul>
+                </div>
+                <div class="tab-content hidden" id="trainings">
+                    <h2>Additional Trainings</h2>
+                    <p>I have completed several training programs and certifications, including:</p>
+                    <ul>
+                        <li>Certified Ethical Hacker (CEH)</li>
+                        <li>CompTIA Security+</li>
+                        <li>CISSP (Certified Information Systems Security Professional)</li>
+                        <li>Various online courses on platforms like Coursera and Udemy.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <footer>
-            <p>&copy; 2025 Jun Laurenz Moreno</p>
+            <p>© 2025 Jun Laurenz L. Moreno | All rights reserved.</p>
         </footer>
     </div>
-    <script src="script.js"></script>
+
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
 </body>
+
 </html>

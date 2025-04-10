@@ -11,7 +11,7 @@ const bootLogs = [
   "[0.0450] Integrating TryHackMe progress and CTF achievements...",
   "[0.0524] Aligning content for recruiter visibility...",
   "[0.0599] Resume loaded. Contact channels secured.",
-  "[0.0673] Interface polished. UX firewall active 😎",
+  "[0.0673] Interface polished. UX firewall active.",
   "[0.0732] Running integrity check... 100% verified.",
   "[0.0811] Encryption status: Strong. Identity: Authentic.",
   "[0.0888] Session environment is secure, smooth, and HR-friendly.",
@@ -55,61 +55,133 @@ function showLogEntry() {
   } else {
       setTimeout(() => {
           continueButton.classList.remove("hidden"); // Show the continue button
+          continueButton.style.display = "inline-block"; // Ensure the button is visible
       }, 500); // Delay after the boot log before showing the continue button
   }
 }
 
-// Start showing the loading message when the page loads
-window.onload = showLoadingMessage;
+// Function to show the content of the selected tab
+function showTab(tabId) {
+  // Hide all tab contents
+  const contents = document.querySelectorAll('.tab-content');
+  contents.forEach(content => {
+      content.classList.remove('active'); // Remove active class to hide content
+      content.classList.add('hidden'); // Add hidden class to ensure they are not displayed
+  });
+
+  // Remove active class from all tab buttons
+  const buttons = document.querySelectorAll('.tab-button');
+  buttons.forEach(button => {
+      button.classList.remove('active'); // Remove active class from buttons
+  });
+
+  // Show the selected tab content
+  const selectedContent = document.getElementById(tabId);
+  selectedContent.classList.remove('hidden'); // Remove hidden class to show content
+  selectedContent.classList.add('active'); // Ensure active class is added for display
+
+  // Set the clicked button as active
+  const activeButton = document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`);
+  activeButton.classList.add('active'); // Add active class to the clicked button
+}
+
+// Show the About Me tab by default on page load
+window.onload = () => {
+  showLoadingMessage(); // Start the loading message
+  showTab('about'); // Show the About Me tab by default
+
+  // Add the custom cursor to the page
+  const cursor = document.createElement('div');
+  cursor.classList.add('custom-cursor');
+  document.body.appendChild(cursor);
+
+  // Function to update the cursor position
+  function updateCursorPosition(event) {
+      cursor.style.left = `${event.pageX}px`;
+      cursor.style.top = `${event.pageY}px`;
+  }
+
+  // Add event listener to update cursor position
+  document.addEventListener('mousemove', updateCursorPosition);
+
+  // Hide the default cursor
+  document.body.style.cursor = 'none';
+
+  // Reset the cursor position after the page loads
+  updateCursorPosition({ pageX: window.innerWidth / 2, pageY: window.innerHeight / 2 });
+};
 
 // Add event listener for the continue button
 continueButton.addEventListener('click', function() {
   // Hide the boot screen and button
   document.getElementById("boot-screen").style.display = "none";
+  
   // Allow scrolling and show the main content
   document.body.style.overflow = "auto"; // Enable scrolling
-  document.getElementById("main-content").classList.remove("hidden"); // Show the main content
+  document.getElementById("main-content").classList.add("visible"); // Show the main content with fade-in effect
 });
 
-// Custom Cursor Functionality
-const cursor = document.createElement('div');
-cursor.classList.add('custom-cursor');
-document.body.appendChild(cursor);
+window.onload = () => {
+  showLoadingMessage();
+  showTab("about");
 
-// Flashlight effect
-const flashlight = document.createElement('div');
-flashlight.classList.add('flashlight');
-document.body.appendChild(flashlight);
+  const cursor = document.createElement("div");
+  cursor.classList.add("custom-cursor");
+  document.body.appendChild(cursor);
 
-// Update cursor and flashlight position based on mouse movement
-function update(e) {
-  // Get X and Y coordinates from mouse or touch events
-  var x = e.clientX || e.touches[0].clientX;
-  var y = e.clientY || e.touches[0].clientY;
+  let mouseX = 0, mouseY = 0;
+  let cursorX = 0, cursorY = 0;
+  let isHovering = false;
+  let hoverTarget = null;
 
-  // Update CSS variables for cursor position
-  document.documentElement.style.setProperty('--cursorX', x + 'px');
-  document.documentElement.style.setProperty('--cursorY', y + 'px');
+  // Animate cursor position
+  function animateCursor() {
+    let dx = mouseX - cursorX;
+    let dy = mouseY - cursorY;
 
-  // Update custom cursor position
-  cursor.style.left = `${x}px`;
-  cursor.style.top = `${y}px`;
-  flashlight.style.left = `${x}px`;
-  flashlight.style.top = `${y}px`;
-}
+    // Magnetic attraction on hover
+    if (isHovering && hoverTarget) {
+      const rect = hoverTarget.getBoundingClientRect();
+      const targetX = rect.left + rect.width / 2;
+      const targetY = rect.top + rect.height / 2;
 
-// Add event listeners for mouse and touch movement
-document.addEventListener('mousemove', update);
-document.addEventListener('touchmove', update);
+      dx = (targetX - cursorX) * 0.15;
+      dy = (targetY - cursorY) * 0.15;
+    } else {
+      dx *= 0.15;
+      dy *= 0.15;
+    }
 
-// Prevent default cursor and stick mouse to button
-continueButton.addEventListener('mouseenter', () => {
-  cursor.style.transition = 'none'; // Disable cursor transition
-  cursor.style.left = `${continueButton.getBoundingClientRect().left + continueButton.offsetWidth / 2}px`;
-  cursor.style.top = `${continueButton.getBoundingClientRect().top + continueButton.offsetHeight / 2}px`;
-  document.body.style.cursor = 'none'; // Hide the default cursor
-});
+    cursorX += dx;
+    cursorY += dy;
 
-continueButton.addEventListener('mouseleave', () => {
-  document.body.style.cursor = ''; // Restore the default cursor when leaving
-});
+    cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+    requestAnimationFrame(animateCursor);
+  }
+
+  animateCursor();
+
+  document.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  // Apply magnetic hover effect
+  const hoverables = document.querySelectorAll("button, .tab-button, #continue-button");
+
+  hoverables.forEach((el) => {
+    el.addEventListener("mouseenter", () => {
+      isHovering = true;
+      hoverTarget = el;
+      cursor.classList.add("cursor-hovered");
+    });
+
+    el.addEventListener("mouseleave", () => {
+      isHovering = false;
+      hoverTarget = null;
+      cursor.classList.remove("cursor-hovered");
+    });
+  });
+
+  document.body.style.cursor = "none";
+};
