@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -20,7 +21,7 @@
         <div class="container">
             <div class="header">
                 <h1>Jun Laurenz L. Moreno</h1>
-                <h2 id="subtitle">█</h2>
+                <h2 id="subtitle"></h2>
                 <div class="status-container">
                   <span class="status-button">
                    🟢 Online </span>
@@ -42,55 +43,64 @@
                 </div>             
             </div>
             <div class="terminal-container">
-                <div class="tabs">
-                    <button class="tab-button active" onclick="showTab('about')">About Me</button>
-                    <button class="tab-button" onclick="showTab('experience')">Experience</button>
-                    <button class="tab-button" onclick="showTab('projects')">Projects</button>
-                    <button class="tab-button" onclick="showTab('trainings')">Additional Trainings</button>
-                </div>
-                <div class="tab-content" id="about">
-                    <h2>About Me</h2>
-                    <p>Hello! I'm Jun Laurenz L. Moreno, a dedicated cybersecurity professional with a strong passion for technology and security. I specialize in protecting systems and networks from cyber threats. My journey in technology started early, and I have continually honed my skills in various programming languages and security practices. When I'm not working, I enjoy learning about new technologies and contributing to open-source projects.</p>
-                </div>
-                <div class="tab-content hidden" id="experience">
-                    <h2>Experience</h2>
-                    <p>I have worked with reputable organizations to enhance their cybersecurity posture. My experience includes:</p>
-                    <ul>
-                        <li>Conducting security audits and assessments.</li>
-                        <li>Implementing security measures and protocols.</li>
-                        <li>Collaborating with development teams to secure applications.</li>
-                        <li>Training staff on security best practices.</li>
-                    </ul>
-                </div>
-                <div class="tab-content hidden" id="projects">
-                    <h2>Projects</h2>
-                    <p>Here are some notable projects I've worked on:</p>
-                    <ul>
-                        <li><strong>Secure Web App:</strong> Developed a web application with robust security features.</li>
-                        <li><strong>Network Monitoring Tool:</strong> Created a tool to monitor network traffic and detect anomalies.</li>
-                        <li><strong>Cybersecurity Blog:</strong> Managed a blog that shares insights on cybersecurity practices.</li>
-                    </ul>
-                </div>
-                <div class="tab-content hidden" id="trainings">
-                    <h2>Additional Trainings</h2>
-                    <p>I have completed several training programs and certifications, including:</p>
-                    <ul>
-                        <li>Certified Ethical Hacker (CEH)</li>
-                        <li>CompTIA Security+</li>
-                        <li>CISSP (Certified Information Systems Security Professional)</li>
-                        <li>Various online courses on platforms like Coursera and Udemy.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+              <div class="tabs">
+                  <button class="tab-button active" onclick="showTab('about')">Experience</button>
+                  <button class="tab-button" onclick="showTab('experience')">Education</button>
+                  <button class="tab-button" onclick="showTab('projects')">Certifications</button>
+                  <button class="tab-button" onclick="showTab('trainings')">Others</button>
+              </div>
+          
+              <div class="tab-content" id="about">
+                  <p>> Hello, I'm <span style="color:#0f0;">Jun Laurenz L. Moreno</span>.</p>
+                  <p>> I'm a cybersecurity professional with a passion for technology and protecting systems.</p>
+                  <p>> I specialize in analyzing and securing networks against digital threats.</p>
+                  <p>> Always learning. Always hacking (ethically).</p>
+              </div>
+          
+              <div class="tab-content hidden" id="experience">
+                  <p>> Experience Highlights:</p>
+                  <p>> - Security audits & assessments</p>
+                  <p>> - Protocol implementation</p>
+                  <p>> - Secure app collaboration with dev teams</p>
+                  <p>> - Staff training on security best practices</p>
+              </div>
+          
+              <div class="tab-content hidden" id="projects">
+                  <p>> Projects:</p>
+                  <p>> - Secure Web App → Built a hardened web application with authentication and input sanitization.</p>
+                  <p>> - Network Monitor → Created a tool to track anomalies in traffic.</p>
+                  <p>> - Cybersecurity Blog → Wrote about infosec concepts and practices.</p>
+              </div>
+          
+              <div class="tab-content hidden" id="trainings">
+                  <p>> Completed Trainings & Certifications:</p>
+                  <p>> - Certified Ethical Hacker (CEH)</p>
+                  <p>> - CompTIA Security+</p>
+                  <p>> - CISSP (in progress)</p>
+                  <p>> - Courses from TryHackMe, Coursera, and Udemy</p>
+              </div>
+          </div>
         <footer>
-            <p>                
+            <p>            
               <div class="social-links">
-              <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-              <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-              <a href="https://twitter.com/yourusername" target="_blank">Twitter</a>
-              <a href="https://yourwebsite.com" target="_blank">Website</a>
-            </div>© 2025 Jun Laurenz L. Moreno | Portfolio.</p>
+                <a href="https://github.com/klatu09" target="_blank" class="social-btn github">
+                  <i class="fab fa-github"></i>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/jun-laurenz-moreno-56bab71ba/" target="_blank" class="social-btn linkedin">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+                
+                <a href="https://www.youtube.com/@jlmoreno09" target="_blank" class="social-btn youtube">
+                  <i class="fab fa-youtube"></i>
+                </a>
+                
+                <a href="mailto:junlaurenz.moreno09@gmail.com" target="_blank" class="social-btn email">
+                  <i class="fas fa-envelope"></i> <!-- Example for Resume -->
+                </a>
+              </div>    
+               <p>© 2025 Jun Laurenz L. Moreno | Portfolio.</p> 
+              </div>
         </footer>
     </div>
 

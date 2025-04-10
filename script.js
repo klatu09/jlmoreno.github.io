@@ -142,7 +142,7 @@ window.onload = () => {
     mouseY = e.clientY;
   });
 
-  const hoverables = document.querySelectorAll("button, .tab-button, #continue-button,status-button, .country-button, .nationality-button, .hire-button");
+  const hoverables = document.querySelectorAll("button, .tab-button, #continue-button, .status-button, .country-button, .nationality-button, .hire-button, .social-btn");
 
   hoverables.forEach((el) => {
     el.addEventListener("mouseenter", () => {

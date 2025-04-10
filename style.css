@@ -216,20 +216,100 @@ body {
   margin-top: 20px; /* Add space above the social links */
   margin-bottom: 20px;
   text-align: center; /* Center the links */
+  gap: 15px;
+  font-family: 'Roboto', sans-serif; /* Apply Roboto font globally */
+
+}
+/* Social Button Base Style */
+.social-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  color: #ffffff;
+  border-radius: 30px;
+  text-align: left;
+  cursor: pointer; /* Allow cursor to appear */
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  font-family: 'Roboto', sans-serif;
+  position: relative; /* Required for the glowing effect */
+  box-sizing: border-box;
 }
 
-.social-links a {
-  color: white; /* Link color */
-  margin: 0 10px; /* Space between links */
-  text-decoration: none; /* Remove underline */
-  font-size: 14px; /* Adjust font size */
-  transition: color 0.3s ease-in-out; /* Smooth hover effect */
+/* Email Button */
+.email {
+  background-color: #4CAF50; /* Green background for Email */
+  border-color: #4CAF50; /* Green border */
 }
 
-.social-links a:hover {
-  color: lime; /* Hover effect */
+.email:hover {
+  background-color: #45a049; /* Darker green on hover */
+  box-shadow: 0 0 10px #4CAF50; /* Green glow effect */
 }
 
+/* GitHub Button */
+.github {
+  background-color: #333333; /* GitHub background */
+  border-color: #333333; /* GitHub border */
+}
+
+.github:hover {
+  background-color: #444444; /* Darker gray on hover */
+  box-shadow: 0 0 10px #333333; /* Gray glow effect */
+}
+
+/* LinkedIn Button */
+.linkedin {
+  background-color: #0077b5; /* LinkedIn background */
+  border-color: #0077b5; /* LinkedIn border */
+}
+
+.linkedin:hover {
+  background-color: #005f8c; /* Darker blue on hover */
+  box-shadow: 0 0 10px #0077b5; /* Blue glow effect */
+}
+
+/* YouTube Button */
+.youtube {
+  background-color: #FF0000; /* YouTube background */
+  border-color: #FF0000; /* YouTube border */
+}
+
+.youtube:hover {
+  background-color: #cc0000; /* Darker red on hover */
+  box-shadow: 0 0 10px #FF0000; /* Red glow effect */
+}
+
+/* Hover Effect for Social Buttons (Glow on hover) */
+.social-btn:hover {
+  transform: scale(1.05); /* Slight scaling effect */
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.8); /* Glowing effect */
+  background-color: rgba(255, 255, 255, 0.1); /* Slight white background on hover */
+  border-color: rgba(255, 255, 255, 1); /* Solid white border on hover */
+  animation: glow 1s infinite; /* Apply glowing effect */
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Define Glow Animation */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Remove cursor from the buttons */
+.social-btn {
+  cursor: none;
+}
 /* Container for description */
 .content-container {
   max-width: 80%; /* Limit the width of the container */
@@ -260,12 +340,66 @@ body {
 .terminal-container {
   border: 2px solid #ffffff; /* White border for the terminal */
   border-radius: 20px;
-  width: 100%; /* Assuming your terminal is on the right */
-  float: right;
-  width: 600px; /* Fixed width for the terminal */
+  position: fixed; /* Fixes the terminal container on the screen */
+  top: 50px; /* Adjust this value to position it lower if needed */
+  right: 50px; /* Aligns the terminal container to the right edge */
+  width: 800px; /* Makes the width stretch to 100% of the viewport width */
   height: 400px; /* Fixed height for the terminal */
   padding: 10px;
   overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  z-index: 10; /* Ensures the terminal stays on top of other elements */
+  transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transition for smooth effects */
+  
+  /* Card-like effect */
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5); /* Initial subtle shadow */
+  transform: scale(1.03); /* Slight scale effect for card feel */
+}
+
+.terminal-container:hover {
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.7); /* Darker shadow on hover for emphasis */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Optional inner content styling */
+.terminal-container .block {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: #1a1a1a;
+  transition: box-shadow 0.5s ease-in-out;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); /* Inner glow */
+}
+
+.terminal-container .block:hover {
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.6); /* Glow intensifies */
+}
+
+
+/* Styling for the terminal text content */
+.terminal-container .block .text {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.terminal-container .block h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px; /* Adjusted font size for better readability */
+  margin-bottom: 20px;
+}
+
+.terminal-container .block p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
 }
 
 .terminal-cursor {
@@ -280,15 +414,13 @@ body {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
-
-
-
-/* Tab Styles */
+/* Tabs inside terminal, aligned to the right */
 .tabs {
   display: flex;
+  justify-content: flex-end; /* Aligns to the right */
+  gap: 10px;
   margin-bottom: 10px;
-  cursor: none; /* Hide default cursor */
-
+  width: 100%;
 }
 
 .tab-button {
@@ -299,6 +431,9 @@ body {
   cursor: none; /* Hide default cursor */
   transition: background 0.3s;
   font-size: 1em; /* Consistent font size for tabs */
+  text-align: right;
+  font-family: 'Roboto', sans-serif; /* Apply Roboto font globally */
+
 }
 
 .tab-button:hover {
@@ -311,6 +446,8 @@ body {
 
 .tab-content {
   display: none; /* Hide all tab content by default */
+  text-align: left;
+
 }
 
 .tab-content h2 {
@@ -338,10 +475,10 @@ footer {
   border-radius: 25px; /* More pronounced oblong shape */
   width: auto; /* Allow the width to adjust to the content */
   max-width: 90%; /* Optional: Limit the width for smaller screens */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.); /* Subtle shadow for depth */
   font-family: 'Asap', sans-serif; /* Apply Asap font */
-  opacity: 0.5; /* Slightly transparent background */
   font-size: 12px;
+  cursor: none;
 
 }
 
