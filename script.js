@@ -1,7 +1,7 @@
 // Boot log messages
 const bootLogs = [
   "[0.0001] Launching portfolio system...",
-  "[0.0042] Authenticating guest session... ✅",
+  "[0.0042] Authenticating guest session...",
   "[0.0085] Performing security scan... no threats found.",
   "[0.0123] Warming up defensive protocols... all systems green.",
   "[0.0176] Syncing cybersecurity certifications...",
@@ -33,7 +33,7 @@ function showLoadingMessage() {
   setTimeout(() => {
       bootLogElement.textContent = ""; // Clear the loading message
       showLogEntry(); // Start showing the boot logs
-  }, 1000);
+  }, 5000);
 }
 
 function showLogEntry() {
@@ -80,6 +80,23 @@ function showTab(tabId) {
   activeButton.classList.add('active');
 }
 
+// Typing effect for subtitle (looping)
+const subtitleElement = document.getElementById("subtitle");
+const subtitles = ["IT Professional", "IT Support Specialist", "Research Analyst", "Aspiring Cybersecurity Analyst"];
+let currentIndex = 0;
+
+function typeText(text, i, callback) {
+  if (i < text.length) {
+    subtitleElement.textContent += text.charAt(i);
+    setTimeout(() => typeText(text, i + 1, callback), 75); // Adjust speed of typing (100ms)
+  } else {
+    setTimeout(() => {
+      subtitleElement.textContent = ''; // Clear the current text
+      currentIndex = (currentIndex + 1) % subtitles.length; // Loop the index back to 0
+      typeText(subtitles[currentIndex], 0, callback); // Start typing next subtitle
+    }, 1000); // Wait 1 second before changing text
+  }
+}
 // Initialize on page load
 window.onload = () => {
   showLoadingMessage();
@@ -149,8 +166,9 @@ window.onload = () => {
     document.body.style.overflow = "auto";
     document.getElementById("main-content").classList.add("visible");
 
-    // 🟩 Typing Effect
-    const terminalText = "I'm Jun Laurenz L. Moreno, a passionate cybersecurity professional with expertise in threat analysis, penetration testing, and digital forensics. I thrive on solving complex security challenges and stay ahead of emerging threats through continuous learning and hands-on experience. Whether through CTF competitions, personal projects, or industry training, I'm always refining my skills to deliver real-world, innovative solutions that protect systems and data. My goal is to combine technical expertise with clear communication to empower organizations in an ever-evolving digital world.";
+    // 🟩 Typing Effect for Terminal Text
+    const terminalText = `Hi, I'm Jun Laurenz L. Moreno, an aspiring Cybersecurity Professional with an investigative mindset and analytical problem-solving skills. I have a strong foundation in networks and security, with a passion for blue team tactics—spotting threats, strengthening defenses, and keeping systems secure. I stay current with news, social media, and forums, and actively participate in platforms like LetsDefend, TryHackMe, and CTF challenges. I recently passed CompTIA Security+ and plan to pursue Network+. I'm looking for a company that values skill development and continuous growth, where I can invest my skills while protecting their digital assets. Let me secure your organization—one firewall at a time!`;
+
     const typedTextElement = document.getElementById("typed-text");
     let currentCharIndex = 0;
 
@@ -163,5 +181,10 @@ window.onload = () => {
     }
 
     typeCharacter();
+
+    // 🟩 Start subtitle typing effect after terminal text typing is complete
+    setTimeout(() => {
+      typeText(subtitles[currentIndex], 0, () => {});
+    }, terminalText.length * 30 + 1000); // Wait until terminal text finishes before starting subtitle typing
   });
 };

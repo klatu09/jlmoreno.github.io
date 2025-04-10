@@ -66,7 +66,7 @@ body {
 
 .header h1 {
   margin: 0; /* Remove default margin */
-  font-size: 2.5em; /* Larger font size for the name */
+  font-size: 2.8em; /* Larger font size for the name */
 }
 
 /* Status Container */
@@ -186,31 +186,18 @@ body {
   }
 }
 
-/* Subtitle Styling */
-.subtitle {
-  text-align: center;
+#subtitle {
+  font-family: 'Roboto', sans-serif;
+  color: #00ff00; 
   font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
-
-/* Subtitle Styling */
-.subtitle {
   text-align: center;
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 20px;
+  letter-spacing: 2px;
+  white-space: nowrap; /* Ensure text doesn't wrap */
+  overflow: hidden; /* Hide the overflow text */
+  border-right: 2px solid #00ff00; /* Cursor effect */
+  display: inline-block;
+  padding-right: 5px;
 }
-
-/* Subtitle Styling */
-.subtitle {
-  text-align: center;
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 20px;
-}
-
 
 .status-icon {
   margin-right: 8px; /* Space between the icon and the text */
@@ -226,22 +213,21 @@ body {
 }
 
 .social-links {
-  margin-top: 15px; /* Space above social links */
-}
-
-.social-links h3 {
-  margin: 0; /* Remove default margin for heading */
-  font-size: 1.2em; /* Font size for the heading */
+  margin-top: 20px; /* Add space above the social links */
+  margin-bottom: 20px;
+  text-align: center; /* Center the links */
 }
 
 .social-links a {
-  color: #4CAF50; /* Green color for links */
+  color: white; /* Link color */
+  margin: 0 10px; /* Space between links */
   text-decoration: none; /* Remove underline */
-  margin-right: 15px; /* Space between links */
+  font-size: 14px; /* Adjust font size */
+  transition: color 0.3s ease-in-out; /* Smooth hover effect */
 }
 
 .social-links a:hover {
-  text-decoration: underline; /* Underline on hover */
+  color: lime; /* Hover effect */
 }
 
 /* Container for description */
@@ -249,8 +235,8 @@ body {
   max-width: 80%; /* Limit the width of the container */
   margin: 5px; /* Add some margin around the container */
   padding: 10px; /* Optional padding inside the container */
-  width: 700px; /* Fixed width for the terminal */
-  height: 200px; /* Fixed height for the terminal */
+  width: 700px; /* Fixed width for the container */
+  height: 200px; /* Fixed height for the container */
   box-sizing: border-box; /* Make sure padding doesn't overflow */
   color: white; /* Text color */
   font-size: 14px; /* Adjust font size */
@@ -259,22 +245,26 @@ body {
   font-family: 'Roboto', sans-serif; /* Apply Roboto font globally */
 }
 
-/* Apply Roboto to typed text */
+/* Apply Roboto to typed text with a mini glow */
 #typed-text {
   font-family: 'Roboto', sans-serif; /* Specifically apply Roboto */
   font-size: 15px; /* Optional: adjust font size for the typed text */
-  color: white; /* Adjust text color if needed */
+  color: white; /* Text color */
+  text-shadow: 0 0 5px lime, 0 0 10px lime; /* Mini glow effect (lime color) */
+  overflow: hidden; /* Hide overflow */
+  padding-right: 5px; /* Space for cursor */
+  text-shadow: 0 0 5px lime, 0 0 10px lime; /* Mini glow effect (lime color) */
 }
 
 /* Terminal Container Styles */
 .terminal-container {
   border: 2px solid #ffffff; /* White border for the terminal */
   border-radius: 20px;
-  width: 75%; /* Assuming your terminal is on the right */
+  width: 100%; /* Assuming your terminal is on the right */
   float: right;
   width: 600px; /* Fixed width for the terminal */
   height: 400px; /* Fixed height for the terminal */
-  padding: 20px;
+  padding: 10px;
   overflow-y: auto; /* Enable vertical scrolling if content overflows */
 }
 
@@ -351,6 +341,7 @@ footer {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
   font-family: 'Asap', sans-serif; /* Apply Asap font */
   opacity: 0.5; /* Slightly transparent background */
+  font-size: 12px;
 
 }
 
