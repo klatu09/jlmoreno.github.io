@@ -69,41 +69,45 @@
             </div>
             <div class="terminal-container">
               <div class="tabs">
-                <a href="#" class="btn-flip tab-button active" onclick="showTab('about')" data-back="~/jlmoreno09/experience" data-front="Experience"></a>
-                <a href="#" class="btn-flip tab-button" onclick="showTab('experience')" data-back="~/jlmoreno09/education" data-front="Education"></a>
-                <a href="#" class="btn-flip tab-button" onclick="showTab('projects')" data-back="~/jlmoreno09/certifications" data-front="Certifications"></a>
-                <a href="#" class="btn-flip tab-button" onclick="showTab('trainings')" data-back="~/jlmoreno09/others" data-front="Others"></a>
-              </div>              
-              <div class="tab-content" id="about">
-                  <p>> Hello, I'm <span style="color:#0f0;">Jun Laurenz L. Moreno</span>.</p>
+                <a href="#" class="btn-flip tab-button active" onclick="showTab('experience')" data-back="~/jlmoreno09/experience" data-front="Experience"></a>
+                <a href="#" class="btn-flip tab-button" onclick="showTab('education')" data-back="~/jlmoreno09/education" data-front="Education"></a>
+                <a href="#" class="btn-flip tab-button" onclick="showTab('certifications')" data-back="~/jlmoreno09/certifications" data-front="Certifications"></a>
+                <a href="#" class="btn-flip tab-button" onclick="showTab('others')" data-back="~/jlmoreno09/others" data-front="Others"></a>
+              </div>
+
+                <!-- Experience -->
+                <div class="tab-content" id="experience">
+                  <p>> Hello, I'm Jun Laurenz L. Moreno. </p>
                   <p>> I'm a cybersecurity professional with a passion for technology and protecting systems.</p>
                   <p>> I specialize in analyzing and securing networks against digital threats.</p>
                   <p>> Always learning. Always hacking (ethically).</p>
-              </div>
-          
-              <div class="tab-content hidden" id="experience">
-                  <p>> Experience Highlights:</p>
-                  <p>> - Security audits & assessments</p>
-                  <p>> - Protocol implementation</p>
-                  <p>> - Secure app collaboration with dev teams</p>
-                  <p>> - Staff training on security best practices</p>
-              </div>
-          
-              <div class="tab-content hidden" id="projects">
-                  <p>> Projects:</p>
-                  <p>> - Secure Web App → Built a hardened web application with authentication and input sanitization.</p>
-                  <p>> - Network Monitor → Created a tool to track anomalies in traffic.</p>
-                  <p>> - Cybersecurity Blog → Wrote about infosec concepts and practices.</p>
-              </div>
-          
-              <div class="tab-content hidden" id="trainings">
-                  <p>> Completed Trainings & Certifications:</p>
+                </div>
+              
+                <!-- Education -->
+                <div class="tab-content hidden" id="education">
+                  <p>> Education:</p>
+                  <p>> - Saint Louis University, Baguio (2022 - 2026)</p>
+                  <p>> - Mapúa University, Intramuros (2017 - 2019)</p>
+                </div>
+              
+                <!-- Certifications -->
+                <div class="tab-content hidden" id="certifications">
+                  <p>> Completed Certifications:</p>
                   <p>> - Certified Ethical Hacker (CEH)</p>
                   <p>> - CompTIA Security+</p>
                   <p>> - CISSP (in progress)</p>
-                  <p>> - Courses from TryHackMe, Coursera, and Udemy</p>
+                </div>
+              
+                <!-- Others -->
+                <div class="tab-content hidden" id="others">
+                  <p>> Additional Training & Projects:</p>
+                  <p>> - Network Monitor Tool</p>
+                  <p>> - Secure Web App</p>
+                  <p>> - Cybersecurity Blog</p>
+                  <p>> - TryHackMe, Coursera, and Udemy Courses</p>
+                </div>
               </div>
-          </div>
+            
         <footer>
             <p>            
               <div class="social-links">

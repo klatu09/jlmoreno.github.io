@@ -454,6 +454,26 @@ body {
   white-space: normal;    /* Prevent horizontal overflow from long text */
 }
 
+/* Terminal Container Styles */
+.terminal-container {
+  border: 2px solid #ffffff; /* White border for the terminal */
+  border-radius: 20px;
+  position: fixed; /* Fixes the terminal container on the screen */
+  top: 50px;
+  right: 50px;
+  width: 900px;
+  height: 600px;
+  padding: 10px;
+  overflow-y: auto;      /* Allow vertical scrolling */
+  overflow-x: hidden;    /* Prevent horizontal scrolling */
+  z-index: 10;
+  transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+  transform: scale(1.03);
+  box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
+  white-space: normal;    /* Prevent horizontal overflow from long text */
+}
+
 .terminal-container:hover {
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.7); /* Darker shadow on hover for emphasis */
   transform: scale(1.05); /* Slight zoom effect on hover */
@@ -462,21 +482,20 @@ body {
 /* Optional inner content styling */
 .terminal-container .block {
   width: 100%;
-  height: 100%;
+  height: 100%;  /* Ensure the block takes up the full height */
   padding: 20px;
   color: #ffffff;
   box-sizing: border-box;
   border-radius: 10px;
   background: #1a1a1a;
   transition: box-shadow 0.5s ease-in-out;
-  overflow: hidden;
+  overflow-y: auto;  /* Allow vertical scrolling inside the block */
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.3); /* Inner glow */
 }
 
 .terminal-container .block:hover {
   box-shadow: 0 0 60px rgba(255, 255, 255, 0.6); /* Glow intensifies */
 }
-
 
 /* Styling for the terminal text content */
 .terminal-container .block .text {
@@ -513,6 +532,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 15px;
 }
+
 
 .terminal-cursor {
   display: inline-block;
@@ -553,18 +573,57 @@ body {
 .tab-button.active {
   border-bottom: 2px solid #00ff00; /* Green active tab indicator */
 }
+/* General styling for the tab content */
 .tab-content {
-  display: none; /* Hide all tab content by default */
-  text-align: left;
-
+  padding: 20px;
+  background-color: #1c1c1c; /* Dark background for contrast */
+  color: #fff; /* White text */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Soft shadow */
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif; /* Ensure consistent font */
+  line-height: 1.6;
+  transition: all 0.3s ease;
 }
 
-.tab-content h2 {
-  margin-top: 0;
+/* Specific styling for paragraphs in the experience tab */
+#experience p {
+  font-size: 1.1rem; /* Slightly larger font size for readability */
+  margin-bottom: 10px;
+}
+
+/* The > character before text is custom */
+#experience p::before {
+  content: ">> "; /* Adds the ">>" before the paragraph text */
+  color: #0f0; /* Green color for the arrows */
+}
+
+/* Styling for the highlighted name */
+#experience span {
+  color: #0f0; /* Green color for highlighting the name */
+  font-weight: bold;
+}
+
+/* Add a hover effect to the content box */
+.tab-content:hover {
+  transform: scale(1.02); /* Slight scale effect */
+  box-shadow: 0 6px 12px rgba(0, 255, 255, 0.5); /* Glowing effect */
+}
+
+.tab-content.hidden {
+  display: none; /* This ensures the hidden tabs are not visible */
 }
 
 .tab-content.active {
-  display: block; /* Show active tab content */
+  display: block; /* Only show active tab */
+}
+
+.tab-content p {
+  font-size: 1em; /* Font size for tab content */
+  margin: 0; /* Remove default margin */
+  line-height: 1.5; /* Line height for readability */
+  color: #ffffff; /* White text for contrast */
+  font-family: 'Roboto', sans-serif; /* Apply Roboto font globally */
 }
 
 .hidden {
@@ -773,3 +832,5 @@ h3 {
   z-index: 1;
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
 }
+
+

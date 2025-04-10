@@ -60,28 +60,32 @@ function showLogEntry() {
       }, 500);
   }
 }
-
-// Function to show the content of the selected tab
 function showTab(tabId) {
-  const contents = document.querySelectorAll('.tab-content');
-  contents.forEach(content => {
-      content.classList.remove('active');
-      content.classList.add('hidden');
-  });
-
+  const tabs = document.querySelectorAll('.tab-content');
   const buttons = document.querySelectorAll('.tab-button');
-  buttons.forEach(button => {
-      button.classList.remove('active');
-  });
 
-  const selectedContent = document.getElementById(tabId);
-  selectedContent.classList.remove('hidden');
-  selectedContent.classList.add('active');
+  // Hide all tabs
+  tabs.forEach(tab => tab.classList.add('hidden'));
 
-  const activeButton = document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`);
-  activeButton.classList.add('active');
+  // Remove 'active' class from all buttons
+  buttons.forEach(btn => btn.classList.remove('active'));
+
+  // Find the active tab and remove the 'hidden' class to display it
+  const activeTab = document.getElementById(tabId);
+  if (activeTab) activeTab.classList.remove('hidden');
+
+  // Find the corresponding tab button and add the 'active' class to it
+  const activeButton = Array.from(buttons).find(btn =>
+    btn.getAttribute('onclick')?.includes(tabId)
+  );
+  if (activeButton) activeButton.classList.add('active');
 }
 
+
+// Set the default tab on page load
+document.addEventListener('DOMContentLoaded', () => {
+  showTab('experience');
+});
 // Typing effect for subtitle (looping)
 const subtitleElement = document.getElementById("subtitle");
 const subtitles = ["IT Professional", "IT Support Specialist", "Research Analyst", "Aspiring Cybersecurity Analyst", "Intern"];
