@@ -181,7 +181,7 @@ body {
 /* Prevent default cursor and stick mouse to button */
 #continue-button {
   position: relative;
-  z-index: 2; /* Ensure button is above other elements */
+  z-index: 3; /* Ensure button is above other elements */
 }
 
 /* Hide default cursor when hovering over continue button */
@@ -192,7 +192,7 @@ body {
 /* Sticky mouse effect */
 #continue-button.sticky-cursor {
   position: relative;
-  z-index: 3; /* Make the button appear above everything */
+  z-index: 2; /* Make the button appear above everything */
   transform: scale(1.1); /* Optional: button slightly grows to give feedback */
   transition: transform 0.1s ease; /* Smooth transition for scale effect */
 }
