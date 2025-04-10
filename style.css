@@ -63,29 +63,51 @@ body {
 .header {
   margin-right: 20px; /* Space between header and terminal */
 }
-
 .header h1 {
   margin: 0; /* Remove default margin */
-  font-size: 2.8em; /* Larger font size for the name */
+  font-size: 2.5em; /* Larger font size for better visibility */
+  font-weight: 700; /* Bold font for prominence */
+  text-transform: uppercase; /* All caps for a strong presence */
+  letter-spacing: 3px; /* Increased spacing for a cleaner look */
+  color: #ffffff; /* White text for better contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Subtle text shadow for depth */
+  font-family: 'Roboto', sans-serif; /* Clean sans-serif font */
+  transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect to make the name glow */
+.header h1:hover {
+  color: #00c853; /* Green glow effect on hover */
+  text-shadow: 0 0 10px rgba(0, 200, 83, 0.8), 0 0 20px rgba(0, 200, 83, 0.6); /* Glow effect */
+  transform: translateY(-5px); /* Slight lift on hover */
 }
 
 /* Status Container */
 .status-container {
   display: flex;
   gap: 15px; /* Space between items */
-  justify-content: left; /* Centers the items horizontally */
-  margin-top: 20px;
+  justify-content: flex-start; /* Align items to the left */
+  flex-wrap: wrap; /* Allow items to wrap onto the next line when there's not enough space */
+  margin-top: 1px;
   cursor: none; /* Hide default cursor */
-
+  width: 100%; /* Ensure it stretches the full width of its container */
+  max-width: 600px; /* Set a max width for the container to control horizontal space */
 }
 
 /* General Tag Style */
 .status-button,
 .country-button,
 .nationality-button,
-.hire-status-button {
+.hire-status-button,
+.work-experience-button,
+.it-support-button,
+.research-analyst-button,
+.mindset-button,
+.security-plus-button,
+.google-cybersecurity-button,
+.google-cloud-cybersecurity-button {
   font-family: 'Asap', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   padding: 8px 15px;
   background-color: transparent; /* Transparent background */
   color: #ffffff; /* White text */
@@ -100,58 +122,128 @@ body {
   text-transform: capitalize;
   position: relative; /* Required for the glowing effect */
   animation: shake 3s ease-in-out infinite; /* Mini shake effect applied continuously */
+  white-space: nowrap; /* Prevent text from breaking into multiple lines */
 }
 
 /* Status Button Style (Online) */
 .status-button {
   border-color: #00c853; /* Green border for Online */
+  color: #00c853; /* Green text */
   cursor: none; /* Hide default cursor */
-
-}
-
-.status-button .status-icon {
-  font-size: 20px;
-  cursor: none; /* Hide default cursor */
-
 }
 
 /* Country Button Style (Philippines) */
 .country-button {
   border-color: #007bff; /* Blue border for Philippines */
+  color: #007bff; /* Blue text */
   cursor: none; /* Hide default cursor */
-
 }
 
 /* Nationality Button Style (Filipino) */
 .nationality-button {
   border-color: #ff4081; /* Pink border for Filipino */
+  color: #ff4081; /* Pink text */
   cursor: none; /* Hide default cursor */
-
-}
-
-.nationality-button .flag-icon {
-  font-size: 20px; /* Make the flag a bit bigger */
-  cursor: none; /* Hide default cursor */
-
 }
 
 /* Ready to Get Hired Button Style */
 .hire-status-button {
   border-color: #ff9800; /* Orange border for Ready to Get Hired */
+  color: #ff9800; /* Orange text */
   cursor: none; /* Hide default cursor */
+}
 
+/* Work Experience Button Style */
+.work-experience-button {
+  border-color: #ff9800; /* Orange border for Work Experience */
+  color: #ff9800; /* Orange text */
+  cursor: none; /* Hide default cursor */
+}
+
+/* IT Support Specialist Button Style */
+.it-support-button {
+  border-color: #2196f3; /* Blue border for IT Support */
+  color: #2196f3; /* Blue text */
+  cursor: none; /* Hide default cursor */
+}
+
+/* Research Analyst Button Style */
+.research-analyst-button {
+  border-color: #00bcd4; /* Cyan border for Research Analyst */
+  color: #00bcd4; /* Cyan text */
+  cursor: none; /* Hide default cursor */
+}
+
+/* Investigative Mindset Button Style */
+.mindset-button {
+  border-color: #8bc34a; /* Green border for Investigative Mindset */
+  color: #8bc34a; /* Green text */
+  cursor: none; /* Hide default cursor */
+}
+
+/* CompTIA Security+ Button Style */
+.security-plus-button {
+  border-color: #ffeb3b; /* Yellow border for CompTIA Security+ */
+  color: #ffeb3b; /* Yellow text */
+  cursor: none; /* Hide default cursor */
+}
+
+/* Google Cybersecurity Button Style */
+.google-cybersecurity-button {
+  border-color: #db4437; /* Red border for Google Cybersecurity */
+  color: #db4437; /* Red text */
+  cursor: none; /* Hide default cursor */
+}
+
+/* Google Cloud Cybersecurity Button Style */
+.google-cloud-cybersecurity-button {
+  border-color: #4285f4; /* Blue border for Google Cloud Cybersecurity */
+  color: #4285f4; /* Blue text */
+  cursor: none; /* Hide default cursor */
 }
 
 /* Hover Effect for Buttons (Glow on hover, no shaking) */
 .status-button:hover,
 .country-button:hover,
 .nationality-button:hover,
-.hire-status-button:hover {
+.hire-status-button:hover,
+.work-experience-button:hover,
+.it-support-button:hover,
+.research-analyst-button:hover,
+.mindset-button:hover,
+.security-plus-button:hover,
+.google-cybersecurity-button:hover,
+.google-cloud-cybersecurity-button:hover {
   background-color: rgba(255, 255, 255, 0.1); /* Slight white background on hover */
   border-color: rgba(255, 255, 255, 1); /* Solid white border on hover */
   animation: glow 1s infinite; /* Apply glowing effect */
   animation-duration: 1s;
   animation-timing-function: ease-in-out;
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    text-shadow: 0 0 5px #00c853, 0 0 10px #00c853;
+  }
+  50% {
+    text-shadow: 0 0 10px #00ff6e, 0 0 20px #00ff6e;
+  }
+}
+
+.status-button i,
+.work-experience-button i,
+.it-support-button i,
+.research-analyst-button i,
+.mindset-button i,
+.security-plus-button i,
+.google-cybersecurity-button i,
+.google-cloud-cybersecurity-button i {
+  animation: glowPulse 2s infinite;
+}
+
+/* Optional: You can add a subtle glow for other icons too, like the rocket */
+.hire-status-button i {
+  animation: glowPulse 3s infinite;
 }
 
 /* Glow Effect */
@@ -185,6 +277,9 @@ body {
     transform: translateX(0);
   }
 }
+
+
+
 
 #subtitle {
   font-family: 'Roboto', sans-serif;
@@ -234,6 +329,8 @@ body {
   transition: all 0.3s ease;
   border: 2px solid transparent;
   font-family: 'Roboto', sans-serif;
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s ease;
+
   position: relative; /* Required for the glowing effect */
   box-sizing: border-box;
 }
@@ -293,6 +390,7 @@ body {
   animation-timing-function: ease-in-out;
 }
 
+
 /* Define Glow Animation */
 @keyframes glow {
   0% {
@@ -341,18 +439,19 @@ body {
   border: 2px solid #ffffff; /* White border for the terminal */
   border-radius: 20px;
   position: fixed; /* Fixes the terminal container on the screen */
-  top: 50px; /* Adjust this value to position it lower if needed */
-  right: 50px; /* Aligns the terminal container to the right edge */
-  width: 800px; /* Makes the width stretch to 100% of the viewport width */
-  height: 400px; /* Fixed height for the terminal */
+  top: 50px;
+  right: 50px;
+  width: 900px;
+  height: 600px;
   padding: 10px;
-  overflow-y: auto; /* Enable vertical scrolling if content overflows */
-  z-index: 10; /* Ensures the terminal stays on top of other elements */
-  transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out; /* Transition for smooth effects */
-  
-  /* Card-like effect */
-  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5); /* Initial subtle shadow */
-  transform: scale(1.03); /* Slight scale effect for card feel */
+  overflow-y: auto;      /* Allow vertical scrolling */
+  overflow-x: hidden;    /* Prevent horizontal scrolling */
+  z-index: 10;
+  transition: box-shadow 0.5s ease-in-out, transform 0.5s ease-in-out;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+  transform: scale(1.03);
+  box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
+  white-space: normal;    /* Prevent horizontal overflow from long text */
 }
 
 .terminal-container:hover {
@@ -392,9 +491,22 @@ body {
 }
 
 .terminal-container .block h2 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 30px; /* Adjusted font size for better readability */
-  margin-bottom: 20px;
+  font-family: 'Oswald', sans-serif; /* Clean, modern font */
+  font-size: 32px; /* Slightly larger for better visibility */
+  font-weight: 600; /* Make the subtitle bold for better emphasis */
+  margin-bottom: 20px; /* Space below the subtitle */
+  color: #ffffff; /* White text for contrast against the dark background */
+  letter-spacing: 1px; /* Slight letter spacing for a clean look */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Subtle text shadow for depth */
+  text-transform: uppercase; /* Makes it all caps for a techy, terminal feel */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Hover effect to give it a glowing effect */
+.terminal-container .block h2:hover {
+  color: #00c853; /* Green color for the hover effect */
+  text-shadow: 0 0 8px rgba(0, 200, 83, 0.8), 0 0 20px rgba(0, 200, 83, 0.6); /* Glowing effect */
+  transform: translateY(-3px); /* Slight lift on hover */
 }
 
 .terminal-container .block p {
@@ -414,16 +526,16 @@ body {
   0%, 50% { opacity: 1; }
   51%, 100% { opacity: 0; }
 }
-/* Tabs inside terminal, aligned to the right */
 .tabs {
   display: flex;
-  justify-content: flex-end; /* Aligns to the right */
-  gap: 10px;
+  justify-content: space-between; /* Distribute tabs evenly */
   margin-bottom: 10px;
   width: 100%;
 }
 
 .tab-button {
+  flex: 1; /* Make each tab occupy equal space */
+  text-align: center; /* Center the text inside each tab */
   background: none;
   border: none;
   color: #ffffff; /* White text for the tabs */
@@ -431,9 +543,7 @@ body {
   cursor: none; /* Hide default cursor */
   transition: background 0.3s;
   font-size: 1em; /* Consistent font size for tabs */
-  text-align: right;
   font-family: 'Roboto', sans-serif; /* Apply Roboto font globally */
-
 }
 
 .tab-button:hover {
@@ -443,7 +553,6 @@ body {
 .tab-button.active {
   border-bottom: 2px solid #00ff00; /* Green active tab indicator */
 }
-
 .tab-content {
   display: none; /* Hide all tab content by default */
   text-align: left;
@@ -584,7 +693,7 @@ h3 {
   padding: 12px 24px;
   text-align: center;
   font-size: 18px;
-  cursor: pointer;
+  cursor: ;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(144, 238, 144, 0.6); /* Light green shadow */
   transition: all 0.3s ease;
@@ -598,5 +707,69 @@ h3 {
   transform: scale(1.05); /* Slight scale effect on hover */
   cursor: none;
 }
+.btn-flip {
+  opacity: 1;
+  outline: 0;
+  color: #fff;
+  line-height: 30px; /* smaller height */
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+  text-decoration: none;
+  font-family: 'Roboto Mono', monospace;
+  text-transform: uppercase;
+  cursor: none;
+  margin: 6px;
+  perspective: 1000px;
+  font-size: 12px; /* smaller text */
+  border-radius: 6px;
+}
 
+.btn-flip:hover::after {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+  box-shadow: 0 0 10px #fff;
+}
 
+.btn-flip:hover::before {
+  opacity: 0;
+  transform: translateY(100%) rotateX(180deg);
+}
+
+.btn-flip::after {
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 75%;
+  color: #1e1e24;
+  display: block;
+  transition: 0.5s;
+  position: absolute;
+  background: #adadaf;
+  content: attr(data-back);
+  transform: translateY(-100%) rotateX(180deg);
+  padding: 0 30px;
+  line-height: 60px;
+  font-size: 10px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.btn-flip::before {
+  top: 0;
+  left: 0;
+  opacity: 1;
+  color: #adadaf;
+  display: block;
+  padding: 0 30px;
+  line-height: 40px;
+  transition: 0.5s;
+  position: relative;
+  background: #323237;
+  content: attr(data-front);
+  transform: translateY(0) rotateX(0);
+  border-radius: 8px;
+  z-index: 1;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.15);
+}

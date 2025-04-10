@@ -1,3 +1,5 @@
+
+
 // Boot log messages
 const bootLogs = [
   "[0.0001] Launching portfolio system...",
@@ -82,7 +84,7 @@ function showTab(tabId) {
 
 // Typing effect for subtitle (looping)
 const subtitleElement = document.getElementById("subtitle");
-const subtitles = ["IT Professional", "IT Support Specialist", "Research Analyst", "Aspiring Cybersecurity Analyst"];
+const subtitles = ["IT Professional", "IT Support Specialist", "Research Analyst", "Aspiring Cybersecurity Analyst", "Intern"];
 let currentIndex = 0;
 
 function typeText(text, i, callback) {
@@ -167,7 +169,7 @@ window.onload = () => {
     document.getElementById("main-content").classList.add("visible");
 
     // 🟩 Typing Effect for Terminal Text
-    const terminalText = `Hi, I'm Jun Laurenz L. Moreno, an aspiring Cybersecurity Professional with an investigative mindset and analytical problem-solving skills. I have a strong foundation in networks and security, with a passion for blue team tactics—spotting threats, strengthening defenses, and keeping systems secure. I stay current with news, social media, and forums, and actively participate in platforms like LetsDefend, TryHackMe, and CTF challenges. I recently passed CompTIA Security+ and plan to pursue Network+. I'm looking for a company that values skill development and continuous growth, where I can invest my skills while protecting their digital assets. Let me secure your organization—one firewall at a time!`;
+    const terminalText = `Hey there! I’m a Computer Science student at Saint Louis University, Baguio (Class of 2026), and I’m all about diving deep into the world of IT! With 1.5 years of experience as an IT Support Specialist and Research Analyst, I’ve built a strong foundation in security, networks, IT infrastructure, and system administration. But don’t get me wrong—I’m just getting started and can’t wait to level up! I’m on the lookout for an internship in cybersecurity, network administration, system administration, or IT operations where I can bring my passion for security and hands-on experience to the table. When I’m not tackling CTF challenges, I’m gearing up with the CompTIA Security+ cert (yep, just got it!). Let’s just say, I’m excited to bring my skills to a team ready to make some magic happen!`;
 
     const typedTextElement = document.getElementById("typed-text");
     let currentCharIndex = 0;
@@ -188,3 +190,5 @@ window.onload = () => {
     }, terminalText.length * 30 + 1000); // Wait until terminal text finishes before starting subtitle typing
   });
 };
+
+

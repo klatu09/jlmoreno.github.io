@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Jun Laurenz Moreno | Portfolio</title>
     <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -34,9 +34,33 @@
                     <i class="fas fa-flag"></i> Filipino
                   </span>
                   <span class="hire-status-button">
-                    <i class="fas fa-rocket"></i> Ready to Work
+                    <i class="fas fa-rocket"></i> Ready to work
+                  </span>
+                  <!-- Updated Information -->
+                  <span class="work-experience-button">
+                    <i class="fas fa-briefcase"></i> 2+ Years Work Experience
+                  </span>
+                  <span class="it-support-button">
+                    <i class="fas fa-cogs"></i> IT Support Specialist
+                  </span>
+                  <span class="research-analyst-button">
+                    <i class="fas fa-flask"></i> Research Analyst
+                  </span>
+                  <span class="mindset-button">
+                    <i class="fas fa-search"></i> Customer Service Representative
+                  </span>
+                  <!-- Certified Buttons -->
+                  <span class="security-plus-button">
+                    <i class="fas fa-certificate"></i> CompTIA Security+
+                  </span>
+                  <span class="google-cybersecurity-button">
+                    <i class="fab fa-google"></i> Google Cybersecurity
+                  </span>
+                  <span class="google-cloud-cybersecurity-button">
+                    <i class="fab fa-google"></i> Google Cloud Cybersecurity
                   </span>
                 </div>
+                
                 <div class="content-container">
                   <p class="description">
                     <span id="typed-text"></span><span class="terminal-cursor">█</span>
@@ -45,12 +69,11 @@
             </div>
             <div class="terminal-container">
               <div class="tabs">
-                  <button class="tab-button active" onclick="showTab('about')">Experience</button>
-                  <button class="tab-button" onclick="showTab('experience')">Education</button>
-                  <button class="tab-button" onclick="showTab('projects')">Certifications</button>
-                  <button class="tab-button" onclick="showTab('trainings')">Others</button>
-              </div>
-          
+                <a href="#" class="btn-flip tab-button active" onclick="showTab('about')" data-back="~/jlmoreno09/experience" data-front="Experience"></a>
+                <a href="#" class="btn-flip tab-button" onclick="showTab('experience')" data-back="~/jlmoreno09/education" data-front="Education"></a>
+                <a href="#" class="btn-flip tab-button" onclick="showTab('projects')" data-back="~/jlmoreno09/certifications" data-front="Certifications"></a>
+                <a href="#" class="btn-flip tab-button" onclick="showTab('trainings')" data-back="~/jlmoreno09/others" data-front="Others"></a>
+              </div>              
               <div class="tab-content" id="about">
                   <p>> Hello, I'm <span style="color:#0f0;">Jun Laurenz L. Moreno</span>.</p>
                   <p>> I'm a cybersecurity professional with a passion for technology and protecting systems.</p>
