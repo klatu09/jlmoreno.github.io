@@ -33,9 +33,9 @@ body {
   display: none; /* Initially hidden */
   margin: 0;
   padding: 40px;
-  background-color: #2e2e2e; /* Slightly lighter background for terminal */
+  background-color: #000000; /* Slightly lighter background for terminal */
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glow effect */
-  border-radius: 5px; /* Rounded corners */
+  border-radius: 15px; /* Rounded corners */
   transition: opacity 0.5s ease-in-out; /* Fade effect on visibility */
   width: 80%; /* Adjust width to be 80% of viewport */
   height: 80vh; /* 80% of the viewport height */
@@ -44,6 +44,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%); /* Center the content */
   overflow: hidden; /* Prevent scrolling */
+  
 }
 
 /* Make the content visible with fade-in */
@@ -68,23 +69,152 @@ body {
   font-size: 2.5em; /* Larger font size for the name */
 }
 
-.status-button {
-  background-color: #4CAF50; /* Green background */
-  color: white; /* White text */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Rounded corners */
-  padding: 5px 10px; /* Padding for button */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 1em; /* Font size */
-  display: flex; /* Flex for icon and text alignment */
-  align-items: center; /* Center icon and text vertically */
-  margin-top: 10px; /* Space above the button */
+/* Status Container */
+.status-container {
+  display: flex;
+  gap: 15px; /* Space between items */
+  justify-content: left; /* Centers the items horizontally */
+  margin-top: 20px;
+  cursor: none; /* Hide default cursor */
+
 }
+
+/* General Tag Style */
+.status-button,
+.country-button,
+.nationality-button,
+.hire-status-button {
+  font-family: 'Asap', sans-serif;
+  font-size: 14px;
+  padding: 8px 15px;
+  background-color: transparent; /* Transparent background */
+  color: #ffffff; /* White text */
+  border: 2px solid rgba(255, 255, 255, 0.8); /* Semi-transparent white border */
+  border-radius: 15px; /* Rounded corners for tag-like appearance */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: none; /* Hide default cursor */
+  font-weight: normal;
+  transition: all 0.3s ease-in-out;
+  text-transform: capitalize;
+  position: relative; /* Required for the glowing effect */
+  animation: shake 3s ease-in-out infinite; /* Mini shake effect applied continuously */
+}
+
+/* Status Button Style (Online) */
+.status-button {
+  border-color: #00c853; /* Green border for Online */
+  cursor: none; /* Hide default cursor */
+
+}
+
+.status-button .status-icon {
+  font-size: 20px;
+  cursor: none; /* Hide default cursor */
+
+}
+
+/* Country Button Style (Philippines) */
+.country-button {
+  border-color: #007bff; /* Blue border for Philippines */
+  cursor: none; /* Hide default cursor */
+
+}
+
+/* Nationality Button Style (Filipino) */
+.nationality-button {
+  border-color: #ff4081; /* Pink border for Filipino */
+  cursor: none; /* Hide default cursor */
+
+}
+
+.nationality-button .flag-icon {
+  font-size: 20px; /* Make the flag a bit bigger */
+  cursor: none; /* Hide default cursor */
+
+}
+
+/* Ready to Get Hired Button Style */
+.hire-status-button {
+  border-color: #ff9800; /* Orange border for Ready to Get Hired */
+  cursor: none; /* Hide default cursor */
+
+}
+
+/* Hover Effect for Buttons (Glow on hover, no shaking) */
+.status-button:hover,
+.country-button:hover,
+.nationality-button:hover,
+.hire-status-button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Slight white background on hover */
+  border-color: rgba(255, 255, 255, 1); /* Solid white border on hover */
+  animation: glow 1s infinite; /* Apply glowing effect */
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+/* Glow Effect */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 25px rgba(255, 255, 255, 0.8), 0 0 35px rgba(255, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 25px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Mini Shake Effect */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-2.5px);
+  }
+  50% {
+    transform: translateX(2.5px);
+  }
+  75% {
+    transform: translateX(-2.5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Subtitle Styling */
+.subtitle {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+
+/* Subtitle Styling */
+.subtitle {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* Subtitle Styling */
+.subtitle {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
 
 .status-icon {
-  margin-right: 5px; /* Space between icon and text */
+  margin-right: 8px; /* Space between the icon and the text */
 }
-
 .subtitle {
   font-size: 1.5em; /* Medium font size for subtitle */
   margin-top: 5px; /* Space above the subtitle */
@@ -114,20 +244,61 @@ body {
   text-decoration: underline; /* Underline on hover */
 }
 
+/* Container for description */
+.content-container {
+  max-width: 80%; /* Limit the width of the container */
+  margin: 5px; /* Add some margin around the container */
+  padding: 10px; /* Optional padding inside the container */
+  width: 700px; /* Fixed width for the terminal */
+  height: 200px; /* Fixed height for the terminal */
+  box-sizing: border-box; /* Make sure padding doesn't overflow */
+  color: white; /* Text color */
+  font-size: 14px; /* Adjust font size */
+  line-height: 1.5; /* Adjust line height for readability */
+  text-align: justify;
+  font-family: 'Roboto', sans-serif; /* Apply Roboto font globally */
+}
+
+/* Apply Roboto to typed text */
+#typed-text {
+  font-family: 'Roboto', sans-serif; /* Specifically apply Roboto */
+  font-size: 15px; /* Optional: adjust font size for the typed text */
+  color: white; /* Adjust text color if needed */
+}
+
 /* Terminal Container Styles */
 .terminal-container {
   border: 2px solid #ffffff; /* White border for the terminal */
-  border-radius: 5px;
+  border-radius: 20px;
+  width: 75%; /* Assuming your terminal is on the right */
+  float: right;
   width: 600px; /* Fixed width for the terminal */
   height: 400px; /* Fixed height for the terminal */
   padding: 20px;
   overflow-y: auto; /* Enable vertical scrolling if content overflows */
 }
 
+.terminal-cursor {
+  display: inline-block;
+  animation: blink 1s steps(1) infinite;
+  color: lime; /* Matches terminal style */
+  font-weight: bold;
+  font-family: monospace;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+
+
 /* Tab Styles */
 .tabs {
   display: flex;
   margin-bottom: 10px;
+  cursor: none; /* Hide default cursor */
+
 }
 
 .tab-button {
@@ -135,7 +306,7 @@ body {
   border: none;
   color: #ffffff; /* White text for the tabs */
   padding: 10px 20px;
-  cursor: pointer;
+  cursor: none; /* Hide default cursor */
   transition: background 0.3s;
   font-size: 1em; /* Consistent font size for tabs */
 }
@@ -168,7 +339,7 @@ body {
 footer {
   text-align: center;
   padding: 15px 15px; /* Increased padding for better spacing */
-  background-color: #35424a;
+  background-color: #000000;
   color: #ffffff;
   position: fixed;
   bottom: 0;
@@ -179,6 +350,7 @@ footer {
   max-width: 90%; /* Optional: Limit the width for smaller screens */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
   font-family: 'Asap', sans-serif; /* Apply Asap font */
+  opacity: 0.5; /* Slightly transparent background */
 
 }
 
@@ -198,7 +370,7 @@ footer {
 }
 
 .custom-cursor.cursor-hovered {
-  transform: scale(0);
+  transform: scale(1.5) translate(-50%, -50%);
   opacity: 0;
 }
 

@@ -33,100 +33,61 @@ function showLoadingMessage() {
   setTimeout(() => {
       bootLogElement.textContent = ""; // Clear the loading message
       showLogEntry(); // Start showing the boot logs
-  }, 5000); // Show for 5 seconds
+  }, 1000);
 }
 
 function showLogEntry() {
   if (logIndex < bootLogs.length) {
-      const logMessage = document.createElement("div"); // Create a new div for each log message
+      const logMessage = document.createElement("div");
       logMessage.textContent = bootLogs[logIndex];
 
-      // Apply styles based on the log index
       if (logIndex === bootLogs.length - 1) {
-          logMessage.style.color = "lime"; // Glowing green for the last message
-          logMessage.style.textShadow = "0 0 10px lime, 0 0 20px lime"; // Glowing effect
+          logMessage.style.color = "lime";
+          logMessage.style.textShadow = "0 0 10px lime, 0 0 20px lime";
       } else {
-          logMessage.style.color = "white"; // White text for other messages
+          logMessage.style.color = "white";
       }
 
-      bootLogElement.appendChild(logMessage); // Append the new log message to the boot log
+      bootLogElement.appendChild(logMessage);
       logIndex++;
-      setTimeout(showLogEntry, 200); // Delay of 0.2 seconds between each entry
+      setTimeout(showLogEntry, 200);
   } else {
       setTimeout(() => {
-          continueButton.classList.remove("hidden"); // Show the continue button
-          continueButton.style.display = "inline-block"; // Ensure the button is visible
-      }, 500); // Delay after the boot log before showing the continue button
+          continueButton.classList.remove("hidden");
+          continueButton.style.display = "inline-block";
+      }, 500);
   }
 }
 
 // Function to show the content of the selected tab
 function showTab(tabId) {
-  // Hide all tab contents
   const contents = document.querySelectorAll('.tab-content');
   contents.forEach(content => {
-      content.classList.remove('active'); // Remove active class to hide content
-      content.classList.add('hidden'); // Add hidden class to ensure they are not displayed
+      content.classList.remove('active');
+      content.classList.add('hidden');
   });
 
-  // Remove active class from all tab buttons
   const buttons = document.querySelectorAll('.tab-button');
   buttons.forEach(button => {
-      button.classList.remove('active'); // Remove active class from buttons
+      button.classList.remove('active');
   });
 
-  // Show the selected tab content
   const selectedContent = document.getElementById(tabId);
-  selectedContent.classList.remove('hidden'); // Remove hidden class to show content
-  selectedContent.classList.add('active'); // Ensure active class is added for display
+  selectedContent.classList.remove('hidden');
+  selectedContent.classList.add('active');
 
-  // Set the clicked button as active
   const activeButton = document.querySelector(`.tab-button[onclick="showTab('${tabId}')"]`);
-  activeButton.classList.add('active'); // Add active class to the clicked button
+  activeButton.classList.add('active');
 }
 
-// Show the About Me tab by default on page load
-window.onload = () => {
-  showLoadingMessage(); // Start the loading message
-  showTab('about'); // Show the About Me tab by default
-
-  // Add the custom cursor to the page
-  const cursor = document.createElement('div');
-  cursor.classList.add('custom-cursor');
-  document.body.appendChild(cursor);
-
-  // Function to update the cursor position
-  function updateCursorPosition(event) {
-      cursor.style.left = `${event.pageX}px`;
-      cursor.style.top = `${event.pageY}px`;
-  }
-
-  // Add event listener to update cursor position
-  document.addEventListener('mousemove', updateCursorPosition);
-
-  // Hide the default cursor
-  document.body.style.cursor = 'none';
-
-  // Reset the cursor position after the page loads
-  updateCursorPosition({ pageX: window.innerWidth / 2, pageY: window.innerHeight / 2 });
-};
-
-// Add event listener for the continue button
-continueButton.addEventListener('click', function() {
-  // Hide the boot screen and button
-  document.getElementById("boot-screen").style.display = "none";
-  
-  // Allow scrolling and show the main content
-  document.body.style.overflow = "auto"; // Enable scrolling
-  document.getElementById("main-content").classList.add("visible"); // Show the main content with fade-in effect
-});
-
+// Initialize on page load
 window.onload = () => {
   showLoadingMessage();
-  showTab("about");
+  showTab('about');
 
-  const cursor = document.createElement("div");
-  cursor.classList.add("custom-cursor");
+  // Custom cursor
+  const cursor = document.createElement('div');
+  cursor.classList.add('custom-cursor');
   document.body.appendChild(cursor);
 
   let mouseX = 0, mouseY = 0;
@@ -134,12 +95,10 @@ window.onload = () => {
   let isHovering = false;
   let hoverTarget = null;
 
-  // Animate cursor position
   function animateCursor() {
     let dx = mouseX - cursorX;
     let dy = mouseY - cursorY;
 
-    // Magnetic attraction on hover
     if (isHovering && hoverTarget) {
       const rect = hoverTarget.getBoundingClientRect();
       const targetX = rect.left + rect.width / 2;
@@ -166,8 +125,7 @@ window.onload = () => {
     mouseY = e.clientY;
   });
 
-  // Apply magnetic hover effect
-  const hoverables = document.querySelectorAll("button, .tab-button, #continue-button");
+  const hoverables = document.querySelectorAll("button, .tab-button, #continue-button,status-button, .country-button, .nationality-button, .hire-button");
 
   hoverables.forEach((el) => {
     el.addEventListener("mouseenter", () => {
@@ -184,4 +142,26 @@ window.onload = () => {
   });
 
   document.body.style.cursor = "none";
+
+  // Continue button click
+  continueButton.addEventListener('click', function () {
+    document.getElementById("boot-screen").style.display = "none";
+    document.body.style.overflow = "auto";
+    document.getElementById("main-content").classList.add("visible");
+
+    // 🟩 Typing Effect
+    const terminalText = "I'm Jun Laurenz L. Moreno, a passionate cybersecurity professional with expertise in threat analysis, penetration testing, and digital forensics. I thrive on solving complex security challenges and stay ahead of emerging threats through continuous learning and hands-on experience. Whether through CTF competitions, personal projects, or industry training, I'm always refining my skills to deliver real-world, innovative solutions that protect systems and data. My goal is to combine technical expertise with clear communication to empower organizations in an ever-evolving digital world.";
+    const typedTextElement = document.getElementById("typed-text");
+    let currentCharIndex = 0;
+
+    function typeCharacter() {
+      if (currentCharIndex < terminalText.length) {
+        typedTextElement.textContent += terminalText[currentCharIndex];
+        currentCharIndex++;
+        setTimeout(typeCharacter, 30);
+      }
+    }
+
+    typeCharacter();
+  });
 };
