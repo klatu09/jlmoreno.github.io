@@ -171,44 +171,23 @@ window.onload = () => {
   showTab('welcome'); // Ensure the default tab is "Welcome"
 
   // Custom cursor
-  const cursor = document.createElement('div');
-  cursor.classList.add('custom-cursor');
-  document.body.appendChild(cursor);
+// Custom cursor
+const cursor = document.createElement('div');
+cursor.classList.add('custom-cursor');
+document.body.appendChild(cursor);
 
-  let mouseX = 0, mouseY = 0;
-  let cursorX = 0, cursorY = 0;
-  let isHovering = false;
-  let hoverTarget = null;
+let mouseX = 0, mouseY = 0;
 
-  function animateCursor() {
-    let dx = mouseX - cursorX;
-    let dy = mouseY - cursorY;
+// Directly update the cursor position on mousemove
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
 
-    if (isHovering && hoverTarget) {
-      const rect = hoverTarget.getBoundingClientRect();
-      const targetX = rect.left + rect.width / 2;
-      const targetY = rect.top + rect.height / 2;
+  // Immediately set the cursor's position
+  cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+});
 
-      dx = (targetX - cursorX) * 0.15;
-      dy = (targetY - cursorY) * 0.15;
-    } else {
-      dx *= 0.15;
-      dy *= 0.15;
-    }
 
-    cursorX += dx;
-    cursorY += dy;
-
-    cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
-    requestAnimationFrame(animateCursor);
-  }
-
-  animateCursor();
-
-  document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  });
 
   const hoverables = document.querySelectorAll("button, .tab-button, #continue-button, .status-button, .country-button, .nationality-button, .hire-button, .social-btn");
 
