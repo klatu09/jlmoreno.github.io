@@ -98,15 +98,25 @@ function typeWelcomeMessage() {
   typeCharacter();
 }
 
-// Call the function when the page loads
 document.addEventListener('DOMContentLoaded', () => {
   const preElement = document.getElementById('ascii-welcome');
   if (preElement) {
     typeWelcomeMessage(); // Type the ASCII art immediately on page load
   }
   showTab('welcome'); // Set the default tab to "Welcome"
-});
 
+  // Add event listener for project titles
+  const projectTitles = document.querySelectorAll('.project-title');
+
+  projectTitles.forEach(title => {
+    title.addEventListener('click', () => {
+      const parent = title.parentElement;
+
+      // Toggle the active class
+      parent.classList.toggle('active');
+    });
+  });
+});
 function showTab(tabId) {
   const tabs = document.querySelectorAll('.tab-content');
   const buttons = document.querySelectorAll('.tab-button');

@@ -1,3 +1,6 @@
+* {
+  cursor: none !important; /* Disable all cursors globally */
+}
 /* General Body Styles - After Boot */
 body {
   font-family: 'Courier New', Courier, monospace; /* Monospace font for terminal look */
@@ -535,13 +538,13 @@ body {
   display: flex; /* Use flexbox for tabs */
   justify-content: space-between; /* Distribute tabs evenly */
   margin: 20 auto 10px auto; /* Center the tabs horizontally and add space below */
-  gap: 30px; /* Add small gap between tabs */
+  gap: 20px; /* Add small gap between tabs */
   padding: 0; /* Remove padding */
   background-color: #1a1a1a; /* Match the terminal background */
   z-index: 2; /* Ensure tabs are above the content */
   box-sizing: border-box; /* Include padding in width calculation */
-  width: auto; /* Allow the tabs to adjust to their content */
-  max-width: 100%; /* Optional: Limit the maximum width of the tabs */
+  width: 80%; /* Limit the width of the tabs to 80% of the container */
+  max-width: 900px; /* Set a maximum width for larger screens */
 }
 
 .tab-button {
@@ -725,7 +728,7 @@ h3 {
   padding: 12px 24px;
   text-align: center;
   font-size: 18px;
-  cursor: ;
+  cursor:none;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(144, 238, 144, 0.6); /* Light green shadow */
   transition: all 0.3s ease;
@@ -1008,4 +1011,164 @@ h3 {
 #experience .timeline-card:nth-child(8) .flip-card:hover .flip-card-front,
 #experience .timeline-card:nth-child(8) .flip-card:hover .flip-card-back {
   box-shadow: 0 0 25px #fff, 0 0 45px rgba(255, 255, 255, 0.5);
+}
+/* Projects Tab Container */
+.projects-container {
+  max-height: 400px; /* Limit the height of the container */
+  overflow-y: auto; /* Enable vertical scrolling */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #00ff00 #121212; /* Green scrollbar on dark background */
+  padding: 15px; /* Add padding for spacing */
+  background-color: #121212; /* Slightly darker background for the container */
+  border-radius: 10px; /* Rounded corners for the container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+}
+
+/* Scrollbar Styling for Webkit Browsers */
+.projects-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+  background-color: #00ff00; /* Green scrollbar */
+  border-radius: 10px;
+}
+
+.projects-container::-webkit-scrollbar-track {
+  background-color: #121212; /* Dark background for scrollbar track */
+}
+
+/* Project Item */
+.project-item {
+  margin-bottom: 20px;
+  border: 1px solid #00ff00; /* Green border */
+  border-radius: 8px; /* Slightly rounded corners */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #1a1a1a; /* Dark background for each project */
+}
+
+.project-item:hover {
+  transform: scale(1.02); /* Slight zoom effect on hover */
+  box-shadow: 0 6px 15px rgba(0, 255, 0, 0.3); /* Green glow on hover */
+}
+
+/* Project Title */
+.project-title {
+  background-color: #1a1a1a; /* Dark background */
+  color: #fff; /* White text */
+  text-align: center;
+  padding: 15px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-transform: uppercase; /* Make titles uppercase for emphasis */
+  letter-spacing: 1px; /* Add spacing between letters */
+}
+
+.project-title:hover {
+  background-color: #00ff00; /* Green background on hover */
+  color: #1a1a1a; /* Dark text on hover */
+}
+
+/* Project Description */
+.project-description {
+  display: none; /* Hidden by default */
+  background-color: #121212; /* Slightly darker background for descriptions */
+  color: #ccc; /* Subtle text color */
+  padding: 15px;
+  font-size: 0.9em;
+  line-height: 1.6; /* Increase line height for readability */
+  border-top: 1px solid #00ff00; /* Green border separating title and description */
+}
+
+/* Show Description When Active */
+.project-item.active .project-description {
+  display: block; /* Show the description */
+}
+
+/* Others Tab Container */
+.others-container {
+  max-height: 400px; /* Limit the height of the entire tab */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 20px;
+  background-color: #121212; /* Dark background for consistency */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+  color: #fff; /* White text for contrast */
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color: #00ff00 #1a1a1a; /* Green scrollbar on dark background */
+}
+
+/* Scrollbar Styling for Webkit Browsers */
+.others-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.others-container::-webkit-scrollbar-thumb {
+  background-color: #00ff00; /* Green scrollbar */
+  border-radius: 10px;
+}
+
+.others-container::-webkit-scrollbar-track {
+  background-color: #1a1a1a; /* Dark background for scrollbar track */
+}
+
+/* Section Title */
+.section-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #00ff00; /* Green text for section titles */
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 1px solid #00ff00; /* Green underline */
+  padding-bottom: 5px;
+}
+
+/* Grid Layout for Certifications, Skills, Programming, and Tools */
+.certifications-grid, .skills-grid, .languages-grid, .tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Responsive grid with 5 items per row */
+  gap: 20px; /* Space between items */
+  justify-items: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  margin-top: 20px;
+}
+
+/* Certification, Skill, Language, and Tool Items */
+.certification-item, .skill-item, .language-item, .tool-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #1a1a1a; /* Dark background */
+  border: 1px solid #00ff00; /* Green border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100px; /* Fixed width for consistent alignment */
+  height: 100px; /* Fixed height for consistent alignment */
+}
+
+.certification-item:hover, .skill-item:hover, .language-item:hover, .tool-item:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+  box-shadow: 0 6px 15px rgba(0, 255, 0, 0.3); /* Green glow on hover */
+}
+
+/* Icons with Glowing Effect */
+.certification-item i, .skill-item i, .language-item i, .tool-item i {
+  font-size: 2em; /* Larger icons */
+  margin-bottom: 10px;
+  color: #00ff00; /* Green color for icons */
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Glowing effect */
+}
+
+/* Text Below Icons */
+.certification-item p, .skill-item p, .language-item p, .tool-item p {
+  font-size: 0.9em;
+  color: #ccc; /* Subtle text color */
+  margin: 0;
 }
