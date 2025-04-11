@@ -225,15 +225,13 @@ window.onload = () => {
     document.getElementById("main-content").classList.add("visible");
 
     // Typing Effect for Terminal Text
-    const terminalText = `Hey there—stranger? No... stalker? Hopefully not. Recruiter? Yes, please!
+    const terminalText = `Hey there—stranger? No… stalker? Hopefully not. Recruiter? Yes, please!
 
-Welcome to the rabbit hole. I’m a Computer Science student at Saint Louis University, Baguio (Class of 2026), and I’m all about diving deep into the exciting world of IT and cybersecurity. With 1.5 years of hands-on experience as an IT Support Specialist and Research Analyst, I’ve built a solid foundation in security, networking, IT infrastructure, and system administration. I also have hands-on experience with frameworks, SIEM, and SOAR tools thanks to the projects I’ve worked on and certifications like the Google Cybersecurity and Cloud Cybersecurity courses. But hey, I’m still open to internships and am always looking to learn more!
+I’m a Computer Science student at Saint Louis University, Baguio (Class of 2026) with 1.5 years of hands-on IT support and research experience. I’ve built a solid base in security, networking, and system administration—and thanks to certs like Google’s Cybersecurity courses, I’ve gained real experience with frameworks, SIEM, and SOAR tools too.
 
-I passed my CompTIA Security+ certification on the first try (yep, nailed it!). Next up, I’m planning to pursue certifications like Network+, A+, and CySA+, but I’m still on the lookout for a job that’ll help me take these on and grow my skills further.
+I passed the CompTIA Security+ on my first try, and I’m eyeing Network+, A+, and CySA+ next. Just need the right opportunity (and support!) to get there.
 
-When I’m not busy solving CTF challenges or diving into the latest tech, I’m all about defending systems, solving problems, and making sure everything runs smoothly—because that’s what I love doing.
-
-If you’re looking for someone who’s curious, committed, passionate, and maybe a little obsessed with digital puzzles, let’s connect. I’m ready to roll up my sleeves and contribute to a team that’s making waves in the digital world!`;
+If you're after someone who’s curious, analytical, and just a little obsessed with digital puzzles—let’s talk. I’m ready to dive in and help make cool things happen in the digital world.`;
 
     const typedTextElement = document.getElementById("typed-text");
     let currentCharIndex = 0;
