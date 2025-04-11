@@ -60,6 +60,8 @@ function showLogEntry() {
       }, 500);
   }
 }
+
+
 function showTab(tabId) {
   const tabs = document.querySelectorAll('.tab-content');
   const buttons = document.querySelectorAll('.tab-button');
@@ -86,6 +88,7 @@ function showTab(tabId) {
 document.addEventListener('DOMContentLoaded', () => {
   showTab('experience');
 });
+
 // Typing effect for subtitle (looping)
 const subtitleElement = document.getElementById("subtitle");
 const subtitles = ["IT Professional", "IT Support Specialist", "Research Analyst", "Aspiring Cybersecurity Analyst", "Intern"];

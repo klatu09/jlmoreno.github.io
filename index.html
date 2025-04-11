@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=VT323&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -69,20 +70,95 @@
             </div>
             <div class="terminal-container">
               <div class="tabs">
-                <a href="#" class="btn-flip tab-button active" onclick="showTab('experience')" data-back="~/jlmoreno09/experience" data-front="Experience"></a>
+                <a href="#" class="btn-flip tab-button active" onclick="showTab('welcome')" data-back="~/jlmoreno09/welcome" data-front="Welcome"></a>
+                <a href="#" class="btn-flip tab-button" onclick="showTab('experience')" data-back="~/jlmoreno09/experience" data-front="Experience"></a>
                 <a href="#" class="btn-flip tab-button" onclick="showTab('education')" data-back="~/jlmoreno09/education" data-front="Education"></a>
                 <a href="#" class="btn-flip tab-button" onclick="showTab('certifications')" data-back="~/jlmoreno09/certifications" data-front="Certifications"></a>
                 <a href="#" class="btn-flip tab-button" onclick="showTab('others')" data-back="~/jlmoreno09/others" data-front="Others"></a>
               </div>
 
-                <!-- Experience -->
-                <div class="tab-content" id="experience">
-                  <p>> Hello, I'm Jun Laurenz L. Moreno. </p>
-                  <p>> I'm a cybersecurity professional with a passion for technology and protecting systems.</p>
-                  <p>> I specialize in analyzing and securing networks against digital threats.</p>
-                  <p>> Always learning. Always hacking (ethically).</p>
-                </div>
-              
+                            <!-- Welcome Tab -->
+                            <div class="tab-content" id="welcome">
+                              <pre id="ascii-welcome" class="ascii-welcome">
+                                <!-- The ASCII Welcome message will be typed here -->
+                              </pre>
+                            </div>
+            
+<!-- Experience -->
+<div class="tab-content" id="experience">
+  <pre class="ascii-welcome">
+  </pre>
+  <div class="card-container">
+    
+    <div class="timeline">
+      <!-- Timeline Marker and Card 1 -->
+      <div class="timeline-marker"></div>
+      <div class="timeline-card">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h3>Customer Service Representative</h3>
+              <p class="company-name">St. Elizabeth Montessori School</p>
+              <p class="job-date">Dec 2024 - Present</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Provided technical support, maintained systems, and educated staff on IT best practices for 100+ students and staff.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Timeline Marker and Card 2 -->
+      <div class="timeline-marker"></div>
+      <div class="timeline-card">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h3>Research Analyst</h3>
+              <p class="company-name">St. Elizabeth Montessori School</p>
+              <p class="job-date">Dec 2023 - Dec 2024</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Performed market and academic research, data collection, and analysis to support strategic education planning.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Timeline Marker and Card 3 -->
+      <div class="timeline-marker"></div>
+      <div class="timeline-card">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h3>IT Support Specialist</h3>
+              <p class="company-name">Tech Solutions Inc.</p>
+              <p class="job-date">Jan 2022 - Dec 2023</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Provided IT support, managed hardware/software installations, and resolved technical issues for clients.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Timeline Marker and Card 4 (New Job Experience) -->
+      <div class="timeline-marker"></div>
+      <div class="timeline-card">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h3>???</h3>
+              <p class="company-name">?</p>
+              <p class="job-date">?</p>
+            </div>
+            <div class="flip-card-back">
+              <p>Hire me. I don’t just take roles—I grow in them. Invest in me, and I’ll invest everything back into your company’s success. Loyalty, drive, and results—guaranteed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
                 <!-- Education -->
                 <div class="tab-content hidden" id="education">
                   <p>> Education:</p>
@@ -107,7 +183,8 @@
                   <p>> - TryHackMe, Coursera, and Udemy Courses</p>
                 </div>
               </div>
-            
+            </div>
+          </div>
         <footer>
             <p>            
               <div class="social-links">
