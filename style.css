@@ -1001,3 +1001,11 @@ h3 {
   font-size: 0.9em;
   color: #ccc; /* Subtle text color for dates */
 }
+
+/* White glow for the 4th card in Education and Experience */
+#education .timeline-card:nth-child(8) .flip-card:hover .flip-card-front,
+#education .timeline-card:nth-child(8) .flip-card:hover .flip-card-back,
+#experience .timeline-card:nth-child(8) .flip-card:hover .flip-card-front,
+#experience .timeline-card:nth-child(8) .flip-card:hover .flip-card-back {
+  box-shadow: 0 0 25px #fff, 0 0 45px rgba(255, 255, 255, 0.5);
+}
