@@ -1,5 +1,3 @@
-
-
 // Boot log messages
 const bootLogs = [
   "[0.0001] Launching portfolio system...",
@@ -33,34 +31,81 @@ const continueButton = document.getElementById("continue-button");
 function showLoadingMessage() {
   bootLogElement.textContent = "Thank you for visiting my website; it means a lot! \n \n \n \nLoading... Please wait.";
   setTimeout(() => {
-      bootLogElement.textContent = ""; // Clear the loading message
-      showLogEntry(); // Start showing the boot logs
-  }, 5000);
+    bootLogElement.textContent = ""; // Clear the loading message
+    showLogEntry(); // Start showing the boot logs
+  }, 3000);
 }
 
 function showLogEntry() {
   if (logIndex < bootLogs.length) {
-      const logMessage = document.createElement("div");
-      logMessage.textContent = bootLogs[logIndex];
+    const logMessage = document.createElement("div");
+    logMessage.textContent = bootLogs[logIndex];
 
-      if (logIndex === bootLogs.length - 1) {
-          logMessage.style.color = "lime";
-          logMessage.style.textShadow = "0 0 10px lime, 0 0 20px lime";
-      } else {
-          logMessage.style.color = "white";
-      }
+    if (logIndex === bootLogs.length - 1) {
+      logMessage.style.color = "lime";
+      logMessage.style.textShadow = "0 0 10px lime, 0 0 20px lime";
+    } else {
+      logMessage.style.color = "white";
+    }
 
-      bootLogElement.appendChild(logMessage);
-      logIndex++;
-      setTimeout(showLogEntry, 200);
+    bootLogElement.appendChild(logMessage);
+    logIndex++;
+    setTimeout(showLogEntry, 100);
   } else {
-      setTimeout(() => {
-          continueButton.classList.remove("hidden");
-          continueButton.style.display = "inline-block";
-      }, 500);
+    setTimeout(() => {
+      continueButton.classList.remove("hidden");
+      continueButton.style.display = "inline-block";
+    }, 500);
   }
 }
 
+// Function to type the ASCII "Welcome" message
+function typeWelcomeMessage() {
+  const asciiWelcome = `
+
+
+  ██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗
+  ██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝
+  ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗  
+  ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝  
+  ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗
+   ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝
+                                                                
+  
+                                                               
+ 
+                                                                                  
+  `;
+  const preElement = document.getElementById('ascii-welcome'); // Target the placeholder element
+  if (!preElement) {
+    console.error("Element with ID 'ascii-welcome' not found.");
+    return;
+  }
+
+  let index = 0;
+
+  // Typing effect
+  function typeCharacter() {
+    if (index < asciiWelcome.length) {
+      preElement.textContent += asciiWelcome[index];
+      index++;
+      setTimeout(typeCharacter, 20); // Adjust typing speed (15ms per character)
+    }
+  }
+
+  // Clear the content and start typing
+  preElement.textContent = ''; // Ensure the ASCII art is cleared before typing
+  typeCharacter();
+}
+
+// Call the function when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+  const preElement = document.getElementById('ascii-welcome');
+  if (preElement) {
+    typeWelcomeMessage(); // Type the ASCII art immediately on page load
+  }
+  showTab('welcome'); // Set the default tab to "Welcome"
+});
 
 function showTab(tabId) {
   const tabs = document.querySelectorAll('.tab-content');
@@ -81,17 +126,20 @@ function showTab(tabId) {
     btn.getAttribute('onclick')?.includes(tabId)
   );
   if (activeButton) activeButton.classList.add('active');
+
+  // Handle the "Welcome" tab specifically
+  if (tabId === 'welcome') {
+    const preElement = document.getElementById('ascii-welcome');
+    if (preElement && preElement.textContent.trim() === '') {
+      // Only type the ASCII art if it's not already typed
+      typeWelcomeMessage();
+    }
+  }
 }
-
-
-// Set the default tab on page load
-document.addEventListener('DOMContentLoaded', () => {
-  showTab('experience');
-});
 
 // Typing effect for subtitle (looping)
 const subtitleElement = document.getElementById("subtitle");
-const subtitles = ["IT Professional", "IT Support Specialist", "Research Analyst", "Aspiring Cybersecurity Analyst", "Intern"];
+const subtitles = ["IT Professional", "IT Support Specialist", "Research Analyst", "Aspiring Cybersecurity Analyst", "IT Intern","Computer Science", "Tech Enthusiast", "Problem Solver", "Team Player", "Lifelong Learner","Driven by Curiosity, Passion", "Ready to Learn", "Ready to Contribute", "Ready to Grow"];
 let currentIndex = 0;
 
 function typeText(text, i, callback) {
@@ -106,10 +154,11 @@ function typeText(text, i, callback) {
     }, 1000); // Wait 1 second before changing text
   }
 }
+
 // Initialize on page load
 window.onload = () => {
   showLoadingMessage();
-  showTab('about');
+  showTab('welcome'); // Ensure the default tab is "Welcome"
 
   // Custom cursor
   const cursor = document.createElement('div');
@@ -175,8 +224,16 @@ window.onload = () => {
     document.body.style.overflow = "auto";
     document.getElementById("main-content").classList.add("visible");
 
-    // 🟩 Typing Effect for Terminal Text
-    const terminalText = `Hey there! I’m a Computer Science student at Saint Louis University, Baguio (Class of 2026), and I’m all about diving deep into the world of IT! With 1.5 years of experience as an IT Support Specialist and Research Analyst, I’ve built a strong foundation in security, networks, IT infrastructure, and system administration. But don’t get me wrong—I’m just getting started and can’t wait to level up! I’m on the lookout for an internship in cybersecurity, network administration, system administration, or IT operations where I can bring my passion for security and hands-on experience to the table. When I’m not tackling CTF challenges, I’m gearing up with the CompTIA Security+ cert (yep, just got it!). Let’s just say, I’m excited to bring my skills to a team ready to make some magic happen!`;
+    // Typing Effect for Terminal Text
+    const terminalText = `Hey there—stranger? No... stalker? Hopefully not. Recruiter? Yes, please!
+
+Welcome to the rabbit hole. I’m a Computer Science student at Saint Louis University, Baguio (Class of 2026), and I’m all about diving deep into the exciting world of IT and cybersecurity. With 1.5 years of hands-on experience as an IT Support Specialist and Research Analyst, I’ve built a solid foundation in security, networking, IT infrastructure, and system administration. I also have hands-on experience with frameworks, SIEM, and SOAR tools thanks to the projects I’ve worked on and certifications like the Google Cybersecurity and Cloud Cybersecurity courses. But hey, I’m still open to internships and am always looking to learn more!
+
+I passed my CompTIA Security+ certification on the first try (yep, nailed it!). Next up, I’m planning to pursue certifications like Network+, A+, and CySA+, but I’m still on the lookout for a job that’ll help me take these on and grow my skills further.
+
+When I’m not busy solving CTF challenges or diving into the latest tech, I’m all about defending systems, solving problems, and making sure everything runs smoothly—because that’s what I love doing.
+
+If you’re looking for someone who’s curious, committed, passionate, and maybe a little obsessed with digital puzzles, let’s connect. I’m ready to roll up my sleeves and contribute to a team that’s making waves in the digital world!`;
 
     const typedTextElement = document.getElementById("typed-text");
     let currentCharIndex = 0;
@@ -185,17 +242,15 @@ window.onload = () => {
       if (currentCharIndex < terminalText.length) {
         typedTextElement.textContent += terminalText[currentCharIndex];
         currentCharIndex++;
-        setTimeout(typeCharacter, 30);
+        setTimeout(typeCharacter, 60);
       }
     }
 
     typeCharacter();
 
-    // 🟩 Start subtitle typing effect after terminal text typing is complete
+    // Start subtitle typing effect after terminal text typing is complete
     setTimeout(() => {
       typeText(subtitles[currentIndex], 0, () => {});
     }, terminalText.length * 30 + 1000); // Wait until terminal text finishes before starting subtitle typing
   });
 };
-
-
